@@ -158,8 +158,7 @@ export default function ContactPage() {
             Get in touch
           </h2>
           <p className="text-sm sm:text-base text-slate-600">
-            Sociosqu viverra lectus placerat sem efficitur molestie vehicula
-            cubilia leo etiam nam.
+            Building resilient, elegant software for the future.
           </p>
           <div className="space-y-4">
             {contacts.map(({ label, value, href, Icon }, index) => (
