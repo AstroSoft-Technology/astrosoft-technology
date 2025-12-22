@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const stats = [
   { label: "Projects delivered", value: "120+" },
@@ -42,6 +43,18 @@ const work = [
 export default function Home() {
   return (
     <div className="flex flex-col gap-16">
+      {/* Mobile logo section */}
+      <div className="md:hidden flex justify-center pt-8">
+        <Image
+          src="/images/Final-Logo-Light-bgremoved.png"
+          alt="AstroSoft Technology"
+          width={160}
+          height={160}
+          priority
+          className="h-auto w-40"
+        />
+      </div>
+
       <section className="card overflow-hidden px-8 py-10 sm:px-10">
         <div className="flex flex-wrap items-center gap-3 text-sm text-slate-700">
           <span className="pill">Enterprise-grade builds</span>
