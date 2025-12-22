@@ -108,10 +108,10 @@ export default function RootLayout({
                     </li>
                     <li>
                       <a
-                        href="mailto:hello@astrosoft.tech"
+                        href="mailto:astrosofttechnology@gmail.com"
                         className="hover:text-slate-900 transition"
                       >
-                        hello@astrosoft.tech
+                        astrosoftechnology@gmail.com
                       </a>
                     </li>
                   </ul>
@@ -131,10 +131,38 @@ export default function RootLayout({
                     </li>
                     <li>
                       <a
-                        href="tel:+15550142233"
+                        href="tel:+94786692313"
                         className="hover:text-slate-900 transition"
                       >
-                        +1 (555) 014-2233
+                        +94 78 669 2313
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://wa.me/94786692313"
+                        className="hover:text-slate-900 transition"
+                      >
+                        WhatsApp
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://www.linkedin.com/company/astrosoft-technology/"
+                        className="hover:text-slate-900 transition"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        LinkedIn
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://www.linkedin.com/company/astrosoft-technology/"
+                        className="hover:text-slate-900 transition"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Facebook
                       </a>
                     </li>
                   </ul>

@@ -1,11 +1,25 @@
 const contacts = [
   {
     label: "Email",
-    value: "hello@astrosoft.tech",
-    href: "mailto:hello@astrosoft.tech",
+    value: "astrosofttechnology@gmail.com",
+    href: "mailto:astrosofttechnology@gmail.com",
   },
-  { label: "Phone", value: "+1 (555) 014-2233", href: "tel:+15550142233" },
-  { label: "HQ", value: "Remote-first with regional hubs" },
+  { label: "Phone", value: "+94 78 669 2313", href: "tel:+94786692313" },
+  {
+    label: "WhatsApp",
+    value: "+94 78 669 2313",
+    href: "https://wa.me/94786692313",
+  },
+  {
+    label: "LinkedIn",
+    value: "linkedin.com/company/astrosoft-technology",
+    href: "https://www.linkedin.com/company/astrosoft-technology/",
+  },
+  {
+    label: "Facebook",
+    value: "facebook.com/astrosoft-technology",
+    href: "https://www.facebook.com/profile.php?id=61585606672302 ",
+  },
 ];
 
 export default function ContactPage() {

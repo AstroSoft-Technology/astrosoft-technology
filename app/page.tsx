@@ -40,6 +40,45 @@ const work = [
   },
 ];
 
+const services = [
+  {
+    number: "01",
+    title: "Web, Mobile Applications",
+    description:
+      "We build secure, scalable web, mobile, and cloud apps that fast-track your business growth.",
+  },
+  {
+    number: "02",
+    title: "UI/UX Designs",
+    description:
+      "We craft holistic, people-friendly digital experiences so that your products are loved by users.",
+  },
+  {
+    number: "03",
+    title: "Digital Marketting",
+    description:
+      "Strategic campaigns that amplify your brand and drive measurable engagement across channels.",
+  },
+  {
+    number: "04",
+    title: "IT Consultancy",
+    description:
+      "Expert guidance on architecture, security, and roadmaps to align technology with business goals.",
+  },
+  {
+    number: "05",
+    title: "IT System/Technical Support",
+    description:
+      "Reliable support and maintenance to keep your systems running smoothly around the clock.",
+  },
+  {
+    number: "06",
+    title: "Quality Assurance (QA) & Testing",
+    description:
+      "Comprehensive testing strategies to ensure your product launches flawlessly and stays resilient.",
+  },
+];
+
 export default function Home() {
   return (
     <div className="flex flex-col gap-16">
@@ -141,6 +180,35 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* What we can build for you */}
+      <section className="space-y-8">
+        <div>
+          <h2 className="text-3xl font-semibold text-slate-900">
+            What we can build for you
+          </h2>
+        </div>
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {services.map((service) => (
+            <div
+              key={service.number}
+              className="card relative overflow-hidden p-6"
+            >
+              <div className="absolute right-4 top-4 text-5xl font-bold text-slate-900">
+                {service.number}
+              </div>
+              <div className="relative space-y-3">
+                <h3 className="text-lg font-semibold text-slate-900 pr-16">
+                  {service.title}
+                </h3>
+                <p className="text-sm text-slate-600 leading-relaxed">
+                  {service.description}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
