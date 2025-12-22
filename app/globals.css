@@ -55,6 +55,15 @@ body {
   border: 1px solid rgba(148, 163, 184, 0.3);
   border-radius: 16px;
   box-shadow: 0 20px 60px -30px rgba(15, 23, 42, 0.35);
+  transition: transform 220ms ease, box-shadow 220ms ease,
+    border-color 200ms ease, background 200ms ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 28px 70px -34px rgba(15, 23, 42, 0.45);
+  border-color: rgba(148, 163, 184, 0.5);
+  background: rgba(255, 255, 255, 0.94);
 }
 
 .pill {
@@ -67,4 +76,33 @@ body {
   color: #0f172a;
   font-weight: 600;
   letter-spacing: 0.01em;
+}
+
+.animate-fade-up {
+  opacity: 0;
+  transform: translateY(14px);
+  animation: fade-up 0.75s ease forwards;
+}
+
+@keyframes fade-up {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-soft-pulse {
+  animation: soft-pulse 3.2s ease-in-out infinite;
+}
+
+@keyframes soft-pulse {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }

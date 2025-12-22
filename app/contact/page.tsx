@@ -131,7 +131,7 @@ const social = [
 export default function ContactPage() {
   return (
     <div className="flex flex-col gap-12">
-      <section className="space-y-4">
+      <section className="space-y-4 animate-fade-up">
         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
           Contact
         </p>
@@ -145,9 +145,15 @@ export default function ContactPage() {
         </p>
       </section>
 
-      <section className="grid gap-6 lg:grid-cols-3">
+      <section
+        className="grid gap-6 lg:grid-cols-3 animate-fade-up"
+        style={{ animationDelay: "80ms" }}
+      >
         {/* Left info panel */}
-        <div className="card p-6 space-y-5">
+        <div
+          className="card p-6 space-y-5 animate-fade-up"
+          style={{ animationDelay: "110ms" }}
+        >
           <h2 className="text-2xl font-semibold text-slate-900">
             Get in touch
           </h2>
@@ -156,10 +162,11 @@ export default function ContactPage() {
             cubilia leo etiam nam.
           </p>
           <div className="space-y-4">
-            {contacts.map(({ label, value, href, Icon }) => (
+            {contacts.map(({ label, value, href, Icon }, index) => (
               <div
                 key={label}
-                className="flex items-start gap-3 border-b border-slate-200/70 pb-4 last:border-0 last:pb-0"
+                className="flex items-start gap-3 border-b border-slate-200/70 pb-4 last:border-0 last:pb-0 animate-fade-up"
+                style={{ animationDelay: `${index * 80 + 140}ms` }}
               >
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 text-slate-700">
                   <Icon className="h-5 w-5" />
@@ -187,13 +194,14 @@ export default function ContactPage() {
               Follow our social media
             </div>
             <div className="mt-3 flex items-center gap-3">
-              {social.map(({ name, href, hover, Icon }) => (
+              {social.map(({ name, href, hover, Icon }, index) => (
                 <a
                   key={name}
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`group inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white transition ${hover}`}
+                  className={`group inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white transition ${hover} animate-fade-up`}
+                  style={{ animationDelay: `${index * 70 + 180}ms` }}
                   aria-label={name}
                 >
                   <Icon className="h-5 w-5 text-slate-700 transition group-hover:text-white" />
@@ -203,7 +211,10 @@ export default function ContactPage() {
           </div>
         </div>
         {/* Right form panel */}
-        <div className="card p-6 lg:col-span-2">
+        <div
+          className="card p-6 lg:col-span-2 animate-fade-up"
+          style={{ animationDelay: "130ms" }}
+        >
           <h2 className="text-2xl font-semibold text-slate-900 mb-4">
             Send us a message
           </h2>

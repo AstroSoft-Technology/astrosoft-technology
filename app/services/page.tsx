@@ -59,7 +59,7 @@ const process = [
 export default function ServicesPage() {
   return (
     <div className="flex flex-col gap-12">
-      <section className="space-y-4">
+      <section className="space-y-4 animate-fade-up">
         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
           Services
         </p>
@@ -75,8 +75,12 @@ export default function ServicesPage() {
       </section>
 
       <section className="grid gap-6 md:grid-cols-3">
-        {services.map((service) => (
-          <div key={service.title} className="card h-full p-6">
+        {services.map((service, index) => (
+          <div
+            key={service.title}
+            className="card h-full p-6 animate-fade-up"
+            style={{ animationDelay: `${index * 90 + 90}ms` }}
+          >
             <div className="text-base font-semibold text-slate-900">
               {service.title}
             </div>
@@ -85,7 +89,10 @@ export default function ServicesPage() {
         ))}
       </section>
 
-      <section className="card px-6 py-8 sm:px-8">
+      <section
+        className="card px-6 py-8 sm:px-8 animate-fade-up"
+        style={{ animationDelay: "120ms" }}
+      >
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
@@ -100,10 +107,11 @@ export default function ServicesPage() {
           </span>
         </div>
         <div className="mt-6 grid gap-4 md:grid-cols-4">
-          {process.map((item) => (
+          {process.map((item, index) => (
             <div
               key={item.phase}
-              className="rounded-2xl border border-slate-200 bg-white p-5"
+              className="rounded-2xl border border-slate-200 bg-white p-5 animate-fade-up"
+              style={{ animationDelay: `${index * 80 + 140}ms` }}
             >
               <div className="text-sm font-semibold text-slate-500">
                 {item.phase}

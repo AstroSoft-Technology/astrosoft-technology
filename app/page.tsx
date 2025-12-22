@@ -94,7 +94,7 @@ export default function Home() {
         />
       </div>
 
-      <section className="card overflow-hidden px-8 py-10 sm:px-10">
+      <section className="card overflow-hidden px-8 py-10 sm:px-10 animate-fade-up">
         <div className="flex flex-wrap items-center gap-3 text-sm text-slate-700">
           <span className="pill">Enterprise-grade builds</span>
           <span>AstroSoft Technology</span>
@@ -126,10 +126,11 @@ export default function Home() {
               </Link>
             </div>
             <div className="grid gap-4 sm:grid-cols-3">
-              {stats.map((item) => (
+              {stats.map((item, index) => (
                 <div
                   key={item.label}
-                  className="rounded-2xl border border-slate-200 px-4 py-3"
+                  className="rounded-2xl border border-slate-200 px-4 py-3 animate-fade-up"
+                  style={{ animationDelay: `${index * 80 + 80}ms` }}
                 >
                   <div className="text-2xl font-semibold text-slate-900">
                     {item.value}
@@ -184,17 +185,21 @@ export default function Home() {
       </section>
 
       {/* What we can build for you */}
-      <section className="space-y-8">
+      <section
+        className="space-y-8 animate-fade-up"
+        style={{ animationDelay: "80ms" }}
+      >
         <div>
           <h2 className="text-3xl font-semibold text-slate-900">
             What we can build for you
           </h2>
         </div>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {services.map((service) => (
+          {services.map((service, index) => (
             <div
               key={service.number}
-              className="card relative overflow-hidden p-6"
+              className="card relative overflow-hidden p-6 animate-fade-up"
+              style={{ animationDelay: `${index * 90 + 100}ms` }}
             >
               <div className="absolute right-4 top-4 text-5xl font-bold text-slate-900">
                 {service.number}
@@ -212,7 +217,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="space-y-8">
+      <section
+        className="space-y-8 animate-fade-up"
+        style={{ animationDelay: "100ms" }}
+      >
         <div className="flex flex-wrap items-baseline justify-between gap-4">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
@@ -230,8 +238,12 @@ export default function Home() {
           </Link>
         </div>
         <div className="grid gap-6 md:grid-cols-3">
-          {highlights.map((item) => (
-            <div key={item.title} className="card h-full p-6">
+          {highlights.map((item, index) => (
+            <div
+              key={item.title}
+              className="card h-full p-6 animate-fade-up"
+              style={{ animationDelay: `${index * 90 + 120}ms` }}
+            >
               <div className="text-sm font-semibold text-slate-500">
                 {item.title}
               </div>
@@ -241,7 +253,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="card px-6 py-8 sm:px-8">
+      <section
+        className="card px-6 py-8 sm:px-8 animate-fade-up"
+        style={{ animationDelay: "120ms" }}
+      >
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
@@ -259,10 +274,11 @@ export default function Home() {
           </Link>
         </div>
         <div className="mt-6 grid gap-4 md:grid-cols-3">
-          {work.map((item) => (
+          {work.map((item, index) => (
             <div
               key={item.name}
-              className="rounded-2xl border border-slate-200 bg-white p-5"
+              className="rounded-2xl border border-slate-200 bg-white p-5 animate-fade-up"
+              style={{ animationDelay: `${index * 90 + 140}ms` }}
             >
               <div className="text-sm font-semibold text-slate-500">
                 {item.name}

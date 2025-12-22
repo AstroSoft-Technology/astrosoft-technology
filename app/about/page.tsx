@@ -34,28 +34,32 @@ const milestones = [
   },
 ];
 
-const leaders: { name: string; role: string; image?: string }[] = [
-  {
-    name: "Shiwarne Silva",
-    role: "Founder & CEO",
-    image: "/images/Shiwarne.JPG",
-  },
-  {
-    name: "Jehan Silva",
-    role: "Founder & COO",
-    image: "/images/Jehan.JPG",
-  },
-  {
-    name: "Dinali Perera",
-    role: "Co-Founder & CTO",
-    image: "/images/Dinali.JPG",
-  },
-];
+const leaders: { name: string; role: string; image?: string; bio?: string }[] =
+  [
+    {
+      name: "Shiwarne Silva",
+      role: "Founder & CEO",
+      image: "/images/Shiwarne.JPG",
+      bio: "Sets vision, client outcomes, and calm delivery standards across every program.",
+    },
+    {
+      name: "Jehan Silva",
+      role: "Founder & COO",
+      image: "/images/Jehan.JPG",
+      bio: "Runs operations and delivery quality, keeping sprints predictable and teams aligned.",
+    },
+    {
+      name: "Dinali Perera",
+      role: "Co-Founder & CTO",
+      image: "/images/Dinali.JPG",
+      bio: "Leads engineering strategy, security, and scalability for mission-critical platforms.",
+    },
+  ];
 
 export default function AboutPage() {
   return (
     <div className="flex flex-col gap-12">
-      <section className="space-y-4">
+      <section className="space-y-4 animate-fade-up">
         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
           About
         </p>
@@ -71,8 +75,12 @@ export default function AboutPage() {
       </section>
 
       <section className="grid gap-6 md:grid-cols-3">
-        {values.map((item) => (
-          <div key={item.title} className="card p-6">
+        {values.map((item, index) => (
+          <div
+            key={item.title}
+            className="card p-6 animate-fade-up"
+            style={{ animationDelay: `${index * 90 + 80}ms` }}
+          >
             <div className="text-base font-semibold text-slate-900">
               {item.title}
             </div>
@@ -83,7 +91,10 @@ export default function AboutPage() {
         ))}
       </section>
 
-      <section className="card px-6 py-8 sm:px-8">
+      <section
+        className="card px-6 py-8 sm:px-8 animate-fade-up"
+        style={{ animationDelay: "120ms" }}
+      >
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
@@ -98,10 +109,11 @@ export default function AboutPage() {
           </span>
         </div>
         <div className="mt-6 space-y-4">
-          {milestones.map((item) => (
+          {milestones.map((item, index) => (
             <div
               key={item.year}
-              className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white p-5 sm:flex-row sm:items-start sm:justify-between"
+              className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white p-5 sm:flex-row sm:items-start sm:justify-between animate-fade-up"
+              style={{ animationDelay: `${index * 80 + 140}ms` }}
             >
               <div className="text-sm font-semibold text-slate-500">
                 {item.year}
@@ -115,17 +127,21 @@ export default function AboutPage() {
       </section>
 
       {/* Leadership */}
-      <section className="card px-6 py-8 sm:px-8">
+      <section
+        className="card px-6 py-8 sm:px-8 animate-fade-up"
+        style={{ animationDelay: "140ms" }}
+      >
         <div className="flex flex-wrap items-center justify-between gap-4">
           <h2 className="text-xl font-semibold text-slate-900">
             Our Leadership
           </h2>
         </div>
         <div className="mt-6 grid gap-6 md:grid-cols-3">
-          {leaders.map((person) => (
+          {leaders.map((person, index) => (
             <div
               key={person.name}
-              className="rounded-2xl border border-slate-200 bg-white p-5"
+              className="group relative rounded-2xl border border-slate-200 bg-white p-5 animate-fade-up overflow-visible"
+              style={{ animationDelay: `${index * 90 + 160}ms` }}
             >
               {person.image ? (
                 <div className="relative aspect-square w-full overflow-hidden rounded-xl border border-slate-200">
@@ -170,6 +186,34 @@ export default function AboutPage() {
                   {person.name}
                 </div>
                 <div className="text-sm text-slate-600">{person.role}</div>
+              </div>
+
+              <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center">
+                <div className="rounded-3xl border border-slate-200 bg-white/95 p-5 shadow-2xl backdrop-blur-sm transition duration-300 ease-out opacity-0 translate-y-3 scale-90 group-hover:opacity-100 group-hover:translate-y-0 group-hover:scale-100">
+                  <div className="relative h-72 w-72 overflow-hidden rounded-2xl border border-slate-200 mx-auto">
+                    <Image
+                      src={
+                        person.image ?? "/images/Final-Logo-Light-bgremoved.png"
+                      }
+                      alt={`${person.name} enlarged portrait`}
+                      fill
+                      className="object-cover object-center"
+                      sizes="(max-width: 768px) 100vw, 320px"
+                      priority
+                    />
+                  </div>
+                  <div className="mt-3 text-center">
+                    <div className="text-lg font-semibold text-slate-900">
+                      {person.name}
+                    </div>
+                    <div className="text-sm text-slate-600">{person.role}</div>
+                    {person.bio ? (
+                      <p className="mt-3 text-sm text-slate-600 leading-relaxed">
+                        {person.bio}
+                      </p>
+                    ) : null}
+                  </div>
+                </div>
               </div>
             </div>
           ))}
