@@ -26,6 +26,9 @@ const navItems = [
 export const metadata: Metadata = {
   title: "AstroSoft Technology",
   description: "Professional software solutions for modern enterprises.",
+  icons: {
+    icon: "/images/Final-Logo-Light-bgremoved.png",
+  },
 };
 
 export default function RootLayout({

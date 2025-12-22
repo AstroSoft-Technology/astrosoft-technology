@@ -1,28 +1,98 @@
+"use client";
+
+import { useState } from "react";
+
 const openings = [
   {
-    title: "Senior Software Engineer",
+    title: "Digital Marketing Intern",
     location: "Remote / Hybrid",
-    type: "Full-time",
+    type: "Internship (Full-Time/Part-Time)",
     summary:
-      "Own delivery of cloud-native services, collaborate with product teams, and mentor engineers across the stack.",
+      "Assist in planning and executing digital marketing campaigns, managing social media accounts, and analyzing engagement metrics to enhance brand visibility.",
+    responsibilities: [
+      "Assist with social media content creation, scheduling, and monitoring",
+      "Support email marketing campaigns and website updates",
+      "Conduct market research and analyze trends to identify opportunities",
+      "Track and report on digital marketing performance metrics",
+      "Collaborate with the team to brainstorm marketing strategies",
+    ],
+    requirements: [
+      "Currently pursuing a degree in Marketing, Communications, or related field",
+      "Basic understanding of social media platforms and digital marketing tools",
+      "Strong communication and organizational skills",
+      "Enthusiastic and eager to learn in a fast-paced environment",
+    ],
+    preferred: [
+      "Familiarity with Google Analytics, SEO, and content management systems",
+      "Experience with graphic design tools like Canva or Adobe Suite",
+    ],
   },
   {
-    title: "Product Designer",
+    title: "UI/UX Engineering Intern",
     location: "Remote / Hybrid",
-    type: "Full-time",
+    type: "Internship (Full-Time/Part-Time)",
     summary:
-      "Shape user flows, prototypes, and design systems that keep experiences cohesive across platforms.",
+      "Support our product design and development team in creating user-friendly interfaces and enhancing user experiences across our applications.",
+    responsibilities: [
+      "Support the design and prototyping of web and mobile interfaces",
+      "Collaborate with developers to implement front-end designs",
+      "Conduct usability testing and gather user feedback",
+      "Assist in maintaining design systems and documentation",
+    ],
+    requirements: [
+      "Currently pursuing a degree in Computer Science, Design, Human-Computer Interaction, or related field",
+      "Basic understanding of HTML, CSS, and front-end frameworks",
+      "Familiarity with design tools such as Figma, Sketch, or Adobe XD",
+      "Strong attention to detail and problem-solving abilities",
+    ],
+    preferred: [
+      "Experience in responsive web design",
+      "Knowledge of accessibility standards and UX best practices",
+    ],
   },
   {
-    title: "Delivery Lead",
+    title: "Junior FullStack Developer",
     location: "Remote / Hybrid",
-    type: "Full-time",
+    type: "Full-Time",
     summary:
-      "Guide cross-functional pods, steward roadmaps, and ensure predictable delivery and stakeholder clarity.",
+      "Assist in developing, testing, and maintaining web applications across the full software stack. Collaborate with designers and engineers to deliver high-quality products.",
+    responsibilities: [
+      "Assist in building and maintaining web applications using modern frameworks",
+      "Collaborate with the team to design scalable and efficient solutions",
+      "Participate in code reviews and contribute to improving code quality",
+      "Write clean, maintainable, and well-documented code",
+      "Troubleshoot and debug applications across front-end and back-end",
+      "Learn and adapt to new technologies as required",
+    ],
+    requirements: [
+      "Bachelor's degree in Computer Science, Software Engineering, or a related field (or equivalent experience)",
+      "Basic proficiency in front-end technologies such as HTML, CSS, and JavaScript",
+      "Familiarity with at least one front-end library or framework (React, Vue, or Angular)",
+      "Basic knowledge of back-end development using Node.js, Python, or similar",
+      "Understanding of RESTful APIs and database fundamentals (SQL/NoSQL)",
+      "Strong problem-solving skills and eagerness to learn",
+    ],
+    preferred: [
+      "Experience with Git and version control",
+      "Exposure to cloud services or DevOps tools",
+      "Previous internship or project experience in full-stack development",
+    ],
   },
 ];
 
 export default function CareersPage() {
+  const [expandedJobs, setExpandedJobs] = useState<Set<string>>(new Set());
+
+  const toggleJob = (title: string) => {
+    const newExpanded = new Set(expandedJobs);
+    if (newExpanded.has(title)) {
+      newExpanded.delete(title);
+    } else {
+      newExpanded.add(title);
+    }
+    setExpandedJobs(newExpanded);
+  };
+
   return (
     <div className="flex flex-col gap-12">
       <section className="space-y-4">
@@ -55,22 +125,68 @@ export default function CareersPage() {
           {openings.map((role) => (
             <div
               key={role.title}
-              className="rounded-2xl border border-slate-200 bg-white p-5"
+              className="rounded-2xl border border-slate-200 bg-white p-6"
             >
-              <div className="flex flex-wrap items-center justify-between gap-3">
+              <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
                 <div>
-                  <div className="text-base font-semibold text-slate-900">
+                  <div className="text-xl font-semibold text-slate-900">
                     {role.title}
                   </div>
-                  <div className="text-sm text-slate-600">
+                  <div className="text-sm text-slate-600 mt-1">
                     {role.location} · {role.type}
                   </div>
                 </div>
-                <button className="inline-flex items-center justify-center rounded-full bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-slate-800">
+                <a
+                  href={`mailto:astrosofttechnology@gmail.com?subject=Application for ${encodeURIComponent(role.title)}`}
+                  className="inline-flex items-center justify-center rounded-full bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-slate-800"
+                >
                   Apply now
+                </a>
+              </div>
+              
+              <div className="space-y-4">
+                <div>
+                  <h3 className="text-sm font-semibold text-slate-900 mb-2">About the Role</h3>
+                  <p className="text-sm text-slate-700">{role.summary}</p>
+                </div>
+                {expandedJobs.has(role.title) && (
+                  <>
+                    <div>
+                      <h3 className="text-sm font-semibold text-slate-900 mb-2">Required Skills and Qualifications</h3>
+                      <ul className="list-disc list-inside space-y-1 text-sm text-slate-700">
+                        {role.requirements.map((item, idx) => (
+                          <li key={idx}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h3 className="text-sm font-semibold text-slate-900 mb-2">Preferred Skills</h3>
+                      <ul className="list-disc list-inside space-y-1 text-sm text-slate-700">
+                        {role.preferred.map((item, idx) => (
+                          <li key={idx}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="pt-2 border-t border-slate-200">
+                      <p className="text-xs text-slate-500">
+                        How to Apply: Send your resume and relevant work samples to{" "}
+                        <a href={`mailto:astrosofttechnology@gmail.com?subject=Application for ${encodeURIComponent(role.title)}`} className="text-slate-900 underline">
+                          astrosofttechnology@gmail.com
+                        </a>
+                      </p>
+                    </div>
+                  </>
+                )}
+
+                <button
+                  onClick={() => toggleJob(role.title)}
+                  className="text-sm font-semibold text-slate-900 underline decoration-2 underline-offset-8 hover:text-slate-700 transition"
+                >
+                  {expandedJobs.has(role.title) ? "Show less" : "Show more"}
                 </button>
               </div>
-              <p className="mt-3 text-sm text-slate-700">{role.summary}</p>
             </div>
           ))}
         </div>
