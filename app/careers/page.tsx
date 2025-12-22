@@ -137,22 +137,28 @@ export default function CareersPage() {
                   </div>
                 </div>
                 <a
-                  href={`mailto:astrosofttechnology@gmail.com?subject=Application for ${encodeURIComponent(role.title)}`}
+                  href={`mailto:astrosofttechnology@gmail.com?subject=Application for ${encodeURIComponent(
+                    role.title
+                  )}`}
                   className="inline-flex items-center justify-center rounded-full bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-slate-800"
                 >
                   Apply now
                 </a>
               </div>
-              
+
               <div className="space-y-4">
                 <div>
-                  <h3 className="text-sm font-semibold text-slate-900 mb-2">About the Role</h3>
+                  <h3 className="text-sm font-semibold text-slate-900 mb-2">
+                    About the Role
+                  </h3>
                   <p className="text-sm text-slate-700">{role.summary}</p>
                 </div>
                 {expandedJobs.has(role.title) && (
                   <>
                     <div>
-                      <h3 className="text-sm font-semibold text-slate-900 mb-2">Required Skills and Qualifications</h3>
+                      <h3 className="text-sm font-semibold text-slate-900 mb-2">
+                        Required Skills and Qualifications
+                      </h3>
                       <ul className="list-disc list-inside space-y-1 text-sm text-slate-700">
                         {role.requirements.map((item, idx) => (
                           <li key={idx}>{item}</li>
@@ -161,7 +167,9 @@ export default function CareersPage() {
                     </div>
 
                     <div>
-                      <h3 className="text-sm font-semibold text-slate-900 mb-2">Preferred Skills</h3>
+                      <h3 className="text-sm font-semibold text-slate-900 mb-2">
+                        Preferred Skills
+                      </h3>
                       <ul className="list-disc list-inside space-y-1 text-sm text-slate-700">
                         {role.preferred.map((item, idx) => (
                           <li key={idx}>{item}</li>
@@ -171,8 +179,14 @@ export default function CareersPage() {
 
                     <div className="pt-2 border-t border-slate-200">
                       <p className="text-xs text-slate-500">
-                        How to Apply: Send your resume and relevant work samples to{" "}
-                        <a href={`mailto:astrosofttechnology@gmail.com?subject=Application for ${encodeURIComponent(role.title)}`} className="text-slate-900 underline">
+                        How to Apply: Send your resume and relevant work samples
+                        to{" "}
+                        <a
+                          href={`mailto:astrosofttechnology@gmail.com?subject=Application for ${encodeURIComponent(
+                            role.title
+                          )}`}
+                          className="text-slate-900 underline"
+                        >
                           astrosofttechnology@gmail.com
                         </a>
                       </p>
