@@ -232,12 +232,18 @@ export default function NavBar() {
                 <Link
                   key={href}
                   href={href}
-                  className={`flex flex-col items-center gap-1 rounded-xl px-3 py-2 transition hover:opacity-90 ${
-                    active ? "bg-white/15" : ""
-                  }`}
+                  className="flex flex-col items-center gap-1 px-3 py-2 transition hover:opacity-90"
                   aria-current={active ? "page" : undefined}
                 >
-                  <Icon className="h-5 w-5 text-white" />
+                  <div
+                    className={`flex h-10 w-10 items-center justify-center rounded-full ${
+                      active
+                        ? "bg-white text-slate-900"
+                        : "bg-white/10 text-white"
+                    }`}
+                  >
+                    <Icon className="h-5 w-5" />
+                  </div>
                   <span className="text-[10px] font-medium text-white">
                     {label}
                   </span>

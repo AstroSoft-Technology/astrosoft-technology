@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const values = [
   {
     title: "Clarity first",
@@ -28,6 +30,24 @@ const milestones = [
     year: "2023",
     detail:
       "Launched reliability program with 24/7 monitoring and proactive incident playbooks.",
+  },
+];
+
+const leaders: { name: string; role: string; image?: string }[] = [
+  {
+    name: "Shiwarne Silva",
+    role: "Founder & CEO",
+    image: "/images/Shiwarne.JPG",
+  },
+  {
+    name: "Jehan Silva",
+    role: "Founder & COO",
+    image: "/images/Jehan.JPG",
+  },
+  {
+    name: "Dinali Perera",
+    role: "Co-Founder & CTO",
+    image: "/images/Dinali.JPG",
   },
 ];
 
@@ -88,6 +108,68 @@ export default function AboutPage() {
               <p className="text-sm text-slate-700 sm:max-w-4xl">
                 {item.detail}
               </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Leadership */}
+      <section className="card px-6 py-8 sm:px-8">
+        <div className="flex flex-wrap items-center justify-between gap-4">
+          <h2 className="text-xl font-semibold text-slate-900">
+            Our Leadership
+          </h2>
+        </div>
+        <div className="mt-6 grid gap-6 md:grid-cols-3">
+          {leaders.map((person) => (
+            <div
+              key={person.name}
+              className="rounded-2xl border border-slate-200 bg-white p-5"
+            >
+              {person.image ? (
+                <div className="relative aspect-square w-full overflow-hidden rounded-xl border border-slate-200">
+                  <Image
+                    src={person.image}
+                    alt={`${person.name} portrait`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+              ) : (
+                <div className="aspect-square w-full overflow-hidden rounded-xl border border-slate-200 bg-gradient-to-br from-slate-100 to-slate-200">
+                  <div className="flex h-full items-center justify-center text-slate-400">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      className="h-16 w-16"
+                      aria-hidden="true"
+                    >
+                      <circle
+                        cx="12"
+                        cy="8"
+                        r="4"
+                        stroke="currentColor"
+                        strokeWidth="1.8"
+                      />
+                      <path
+                        d="M4 20c0-4 4-6 8-6s8 2 8 6"
+                        stroke="currentColor"
+                        strokeWidth="1.8"
+                        strokeLinecap="round"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              )}
+              <div className="mt-4">
+                <div className="text-m font-semibold text-slate-900">
+                  {person.name}
+                </div>
+                <div className="text-sm text-slate-600">{person.role}</div>
+              </div>
             </div>
           ))}
         </div>
