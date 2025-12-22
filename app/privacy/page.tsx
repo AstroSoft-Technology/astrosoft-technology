@@ -1,3 +1,5 @@
+import { Analytics } from "@vercel/analytics/next";
+
 export default function PrivacyPage() {
   return (
     <div className="flex flex-col gap-6">

@@ -1,4 +1,5 @@
 import type { SVGProps } from "react";
+import { Analytics } from "@vercel/analytics/next";
 
 function IconMail(props: SVGProps<SVGSVGElement>) {
   return (

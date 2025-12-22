@@ -1,3 +1,5 @@
+import { Analytics } from "@vercel/analytics/next";
+
 const services = [
   {
     title: "Product strategy",
