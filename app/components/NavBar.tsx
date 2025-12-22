@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { useEffect, useState, type SVGProps } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -142,7 +143,7 @@ function IconMail(props: IconProps) {
 const navItems: {
   label: string;
   href: string;
-  Icon: (props: IconProps) => JSX.Element;
+  Icon: React.ComponentType<IconProps>;
 }[] = [
   { label: "Home", href: "/", Icon: IconHome },
   { label: "Services", href: "/services", Icon: IconTools },
