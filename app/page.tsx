@@ -1,42 +1,234 @@
-import Link from "next/link";
+"use client";
+
+import { useState, useMemo } from "react";
+import type { ReactElement } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const stats = [
-  { label: "Projects delivered", value: "120+" },
-  { label: "Average uplift", value: "38%" },
-  { label: "Uptime on launches", value: "99.9%" },
+  { value: "50+", label: "Projects delivered" },
+  { value: "30+", label: "Team members" },
+  { value: "5+", label: "Years experience" },
 ];
 
 const highlights = [
-  {
-    title: "Digital product builds",
-    copy: "Design, engineer, and ship secure web and mobile platforms built to scale.",
-  },
-  {
-    title: "Cloud-native modernization",
-    copy: "Migrate legacy stacks into resilient, observable architectures on AWS and Azure.",
-  },
-  {
-    title: "Data and AI enablement",
-    copy: "Integrate analytics pipelines and pragmatic AI to unlock measurable outcomes.",
-  },
+  { title: "Strategy", copy: "We align technology with business goals." },
+  { title: "Design", copy: "User-centric interfaces that delight." },
+  { title: "Engineering", copy: "Scalable, maintainable code." },
 ];
+
+const techIcons: Record<string, ReactElement> = {
+  React: (
+    <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none">
+      <g stroke="currentColor" strokeWidth="1.6" fill="none">
+        <ellipse cx="12" cy="12" rx="10" ry="4.2" />
+        <ellipse cx="12" cy="12" rx="4.2" ry="10" />
+        <circle cx="12" cy="12" r="1.6" fill="currentColor" />
+      </g>
+    </svg>
+  ),
+  "React Native": (
+    <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none">
+      <g stroke="currentColor" strokeWidth="1.6" fill="none">
+        <ellipse cx="12" cy="12" rx="10" ry="4.2" />
+        <ellipse
+          cx="12"
+          cy="12"
+          rx="4.2"
+          ry="10"
+          transform="rotate(60 12 12)"
+        />
+        <ellipse
+          cx="12"
+          cy="12"
+          rx="4.2"
+          ry="10"
+          transform="rotate(120 12 12)"
+        />
+        <circle cx="12" cy="12" r="1.6" fill="currentColor" />
+      </g>
+    </svg>
+  ),
+  Python: (
+    <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none">
+      <path
+        d="M11.5 4.5h3.5a3 3 0 0 1 3 3V11c0 1.1-.9 2-2 2h-6a2 2 0 0 0-2 2v1.5c0 1.1.9 2 2 2H17"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M12.5 19.5H9a3 3 0 0 1-3-3V13c0-1.1.9-2 2-2h6a2 2 0 0 0 2-2V7.5c0-1.1-.9-2-2-2H7"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <circle cx="9" cy="6.5" r="0.9" fill="currentColor" />
+      <circle cx="15" cy="17.5" r="0.9" fill="currentColor" />
+    </svg>
+  ),
+  Postgres: (
+    <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none">
+      <ellipse
+        cx="12"
+        cy="6"
+        rx="7"
+        ry="3"
+        stroke="currentColor"
+        strokeWidth="1.6"
+      />
+      <path
+        d="M5 6v8c0 1.7 3.1 3 7 3s7-1.3 7-3V6"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        fill="none"
+      />
+      <path
+        d="M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3"
+        stroke="currentColor"
+        strokeWidth="1.6"
+      />
+    </svg>
+  ),
+  Django: (
+    <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none">
+      <rect
+        x="5"
+        y="5"
+        width="6"
+        height="14"
+        rx="1.5"
+        stroke="currentColor"
+        strokeWidth="1.6"
+      />
+      <rect
+        x="13"
+        y="9"
+        width="6"
+        height="10"
+        rx="1.5"
+        stroke="currentColor"
+        strokeWidth="1.6"
+      />
+      <path
+        d="M8 8.5v3"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+      <path
+        d="M16 12.5v3"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+    </svg>
+  ),
+  FastAPI: (
+    <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none">
+      <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.6" />
+      <path
+        d="M9 12h6m-2.5-4.5-3 9"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  ),
+  "Machine Learning": (
+    <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none">
+      <rect
+        x="4"
+        y="6"
+        width="16"
+        height="12"
+        rx="3"
+        stroke="currentColor"
+        strokeWidth="1.6"
+      />
+      <circle cx="9" cy="12" r="1.4" fill="currentColor" />
+      <circle cx="15" cy="10" r="1.4" fill="currentColor" />
+      <circle cx="15" cy="14" r="1.4" fill="currentColor" />
+      <path
+        d="M9 12h5"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+      />
+    </svg>
+  ),
+  Vercel: (
+    <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="currentColor">
+      <path d="m12 5 8.5 14h-17z" />
+    </svg>
+  ),
+  Expo: (
+    <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none">
+      <path
+        d="m9 18 3-12 3 12"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M6.5 18h11"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+    </svg>
+  ),
+};
 
 const work = [
   {
-    name: "Fintech risk suite",
+    name: "PlantGuard",
+    link: "https://github.com/Shiwarne-Silva/PlantGuard",
     detail:
-      "Reduced underwriting decision times from 3 days to 30 minutes with event-driven services.",
+      "Machine Learning, Image Processing, CNN, FastAPI, React Native, Vercel",
+    image:
+      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 240'%3E%3Cdefs%3E%3ClinearGradient id='g1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%' stop-color='%2310b981'/%3E%3Cstop offset='100%' stop-color='%230f172a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='240' fill='url(%23g1)'/%3E%3Ccircle cx='90' cy='120' r='70' fill='%23ffffff22'/%3E%3Ccircle cx='220' cy='80' r='40' fill='%23ffffff18'/%3E%3Ctext x='26' y='200' fill='%23ffffff' font-size='24' font-family='Inter,Arial' font-weight='600'%3EPlantGuard%3C/text%3E%3C/svg%3E",
+    tech: ["Machine Learning", "FastAPI", "React Native", "Vercel"],
   },
   {
-    name: "Retail experience refresh",
+    name: "Kidemy",
+    link: "",
     detail:
-      "Rebuilt storefront for 4x faster load times and +22% conversion uplift across devices.",
+      "Educational portal with lesson practice, AI-marked question banks, feedback, and adaptive remediation for students, teachers, and tutors.",
+    image:
+      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 240'%3E%3Cdefs%3E%3ClinearGradient id='g2' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%' stop-color='%233b82f6'/%3E%3Cstop offset='100%' stop-color='%236b21a8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='240' fill='url(%23g2)'/%3E%3Ccircle cx='110' cy='90' r='55' fill='%23ffffff22'/%3E%3Ccircle cx='260' cy='150' r='70' fill='%23ffffff18'/%3E%3Ctext x='34' y='210' fill='%23ffffff' font-size='24' font-family='Inter,Arial' font-weight='600'%3EKidemy%3C/text%3E%3C/svg%3E",
+    tech: ["React", "Python", "Postgres", "Django"],
   },
   {
-    name: "Industrial IoT platform",
+    name: "ds-motors",
+    link: "https://www.dsmotors.lk/",
     detail:
-      "Unified telemetry and alerting across 18 facilities with zero unplanned downtime at launch.",
+      "Garage workflow site for bookings and service visibility, delivered with a lightweight React front end on Vercel.",
+    image:
+      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 240'%3E%3Cdefs%3E%3ClinearGradient id='g3' x1='0' y1='1' x2='1' y2='0'%3E%3Cstop offset='0%' stop-color='%230ea5e9'/%3E%3Cstop offset='100%' stop-color='%2310b981'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='240' fill='url(%23g3)'/%3E%3Ccircle cx='200' cy='120' r='90' fill='%23ffffff15'/%3E%3Ctext x='38' y='205' fill='%23ffffff' font-size='24' font-family='Inter,Arial' font-weight='600'%3Eds-motors%3C/text%3E%3C/svg%3E",
+    tech: ["React", "Vercel"],
+  },
+  {
+    name: "TaskFlow",
+    link: "https://github.com/Shiwarne-Silva/todo-list-react-native",
+    detail:
+      "React Native to-do app with auth, quick add/delete, and streamlined task management for iOS and Android.",
+    image:
+      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 240'%3E%3Cdefs%3E%3ClinearGradient id='g4' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%' stop-color='%23f97316'/%3E%3Cstop offset='100%' stop-color='%23ef4444'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='240' fill='url(%23g4)'/%3E%3Ccircle cx='90' cy='140' r='60' fill='%23ffffff18'/%3E%3Ccircle cx='270' cy='90' r='70' fill='%23ffffff15'/%3E%3Ctext x='36' y='205' fill='%23ffffff' font-size='24' font-family='Inter,Arial' font-weight='600'%3ETaskFlow%3C/text%3E%3C/svg%3E",
+    tech: ["React Native", "Expo", "Vercel"],
+  },
+  {
+    name: "Ceylon Ayurveda (UK)",
+    link: "https://github.com/Shiwarne-Silva/ceylon-ayurveda-therapist",
+    detail:
+      "Cross-platform mobile app for therapists to manage appointments, patients, and treatment records with Ayurvedic-aligned UX.",
+    image:
+      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 240'%3E%3Cdefs%3E%3ClinearGradient id='g5' x1='1' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%' stop-color='%238b5cf6'/%3E%3Cstop offset='100%' stop-color='%23256b98'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='240' fill='url(%23g5)'/%3E%3Ccircle cx='140' cy='100' r='70' fill='%23ffffff18'/%3E%3Ccircle cx='250' cy='150' r='55' fill='%23ffffff12'/%3E%3Ctext x='22' y='208' fill='%23ffffff' font-size='24' font-family='Inter,Arial' font-weight='600'%3ECeylon Ayurveda%3C/text%3E%3C/svg%3E",
+    tech: ["React Native", "Vercel"],
   },
 ];
 
@@ -80,6 +272,13 @@ const services = [
 ];
 
 export default function Home() {
+  const [workIndex, setWorkIndex] = useState(0);
+
+  const visibleWork = useMemo(() => {
+    if (work.length <= 3) return work;
+    return [0, 1, 2].map((offset) => work[(workIndex + offset) % work.length]);
+  }, [workIndex]);
+
   return (
     <div className="flex flex-col gap-16">
       {/* Mobile logo section */}
@@ -143,7 +342,7 @@ export default function Home() {
 
           <div className="relative">
             <div className="card relative overflow-hidden p-6">
-              <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900" />
+              <div className="absolute inset-0 bg-linear-to-br from-slate-900 via-slate-800 to-slate-900" />
               <div className="relative space-y-6 text-white">
                 <div className="flex items-center justify-between text-sm text-slate-300">
                   <span>Delivery sprints</span>
@@ -260,30 +459,113 @@ export default function Home() {
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
-              Selected work
+              Work delivered
             </p>
             <h3 className="mt-2 text-xl font-semibold text-slate-900">
-              Outcomes with measurable lift
+              Recent builds and launches
             </h3>
           </div>
-          <Link
-            href="/services"
-            className="text-sm font-semibold text-slate-900 underline decoration-2 underline-offset-8"
-          >
-            View services
-          </Link>
+          <div className="flex items-center gap-2">
+            <button
+              aria-label="Previous projects"
+              onClick={() =>
+                setWorkIndex((prev) => (prev - 1 + work.length) % work.length)
+              }
+              className="h-10 w-10 rounded-full border border-slate-200 text-slate-700 hover:bg-slate-50 transition flex items-center justify-center"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                className="h-4 w-4"
+              >
+                <path
+                  d="M14 18l-6-6 6-6"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+            <button
+              aria-label="Next projects"
+              onClick={() => setWorkIndex((prev) => (prev + 1) % work.length)}
+              className="h-10 w-10 rounded-full border border-slate-200 text-slate-700 hover:bg-slate-50 transition flex items-center justify-center"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                className="h-4 w-4"
+              >
+                <path
+                  d="M10 6l6 6-6 6"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
         <div className="mt-6 grid gap-4 md:grid-cols-3">
-          {work.map((item, index) => (
+          {visibleWork.map((item, index) => (
             <div
-              key={item.name}
+              key={`${item.name}-${index}`}
               className="rounded-2xl border border-slate-200 bg-white p-5 animate-fade-up"
               style={{ animationDelay: `${index * 90 + 140}ms` }}
             >
-              <div className="text-sm font-semibold text-slate-500">
-                {item.name}
+              <div className="relative h-44 w-full overflow-hidden rounded-xl border border-slate-100 mb-4">
+                <Image
+                  src={item.image}
+                  alt={`${item.name} cover`}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 320px"
+                />
               </div>
-              <p className="mt-3 text-sm text-slate-700">{item.detail}</p>
+              <div className="flex items-center justify-between gap-3">
+                <div className="text-sm font-semibold text-slate-900">
+                  {item.name}
+                </div>
+                {item.link ? (
+                  <a
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs font-semibold text-slate-700 underline decoration-2 underline-offset-4 hover:text-slate-900"
+                  >
+                    View
+                  </a>
+                ) : (
+                  <span className="text-[11px] font-semibold text-amber-600 uppercase tracking-wide">
+                    Development stage
+                  </span>
+                )}
+              </div>
+              <p className="mt-3 text-sm text-slate-600 leading-relaxed">
+                {item.detail}
+              </p>
+              <div className="mt-3">
+                <div className="text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-500 mb-2">
+                  Technology used
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {item.tech.map((tag) => (
+                    <span
+                      key={tag}
+                      className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700"
+                    >
+                      {techIcons[tag] ?? (
+                        <span className="inline-block h-2 w-2 rounded-full bg-slate-400" />
+                      )}
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
           ))}
         </div>
