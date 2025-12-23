@@ -77,11 +77,7 @@ const techIcons: Record<string, ReactElement> = {
     </svg>
   ),
   npm: (
-    <svg
-      viewBox="0 0 24 24"
-      className="h-5 w-5 shrink-0"
-      fill="currentColor"
-    >
+    <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0" fill="currentColor">
       <rect x="3" y="7" width="18" height="10" rx="1.2" />
       <rect x="6" y="10" width="4" height="4" fill="#fff" />
       <rect x="12" y="10" width="3" height="4" fill="#fff" />
@@ -413,11 +409,7 @@ const techIcons: Record<string, ReactElement> = {
     </svg>
   ),
   Vercel: (
-    <svg
-      viewBox="0 0 24 24"
-      className="h-5 w-5 shrink-0"
-      fill="currentColor"
-    >
+    <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0" fill="currentColor">
       <path d="m12 5 8.5 14h-17z" />
     </svg>
   ),
@@ -474,7 +466,7 @@ const work = [
     name: "PlantGuard",
     link: "https://github.com/Shiwarne-Silva/PlantGuard",
     detail:
-      "Machine Learning, Image Processing, CNN, FastAPI, React Native, Vercel",
+      "AI-powered plant disease detection app using CNN image classification to identify crop diseases in real-time, helping farmers protect their yields.",
     image:
       "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 240'%3E%3Cdefs%3E%3ClinearGradient id='g1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%' stop-color='%2310b981'/%3E%3Cstop offset='100%' stop-color='%230f172a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='240' fill='url(%23g1)'/%3E%3Ccircle cx='90' cy='120' r='70' fill='%23ffffff22'/%3E%3Ccircle cx='220' cy='80' r='40' fill='%23ffffff18'/%3E%3Ctext x='26' y='200' fill='%23ffffff' font-size='24' font-family='Inter,Arial' font-weight='600'%3EPlantGuard%3C/text%3E%3C/svg%3E",
     tech: ["Machine Learning", "FastAPI", "React Native", "Vercel"],
@@ -489,12 +481,12 @@ const work = [
     tech: ["React", "Python", "Postgres", "Django"],
   },
   {
-    name: "ds-motors",
+    name: "DS Motors",
     link: "https://www.dsmotors.lk/",
     detail:
       "Garage workflow site for bookings and service visibility, delivered with a lightweight React front end on Vercel.",
     image:
-      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 240'%3E%3Cdefs%3E%3ClinearGradient id='g3' x1='0' y1='1' x2='1' y2='0'%3E%3Cstop offset='0%' stop-color='%230ea5e9'/%3E%3Cstop offset='100%' stop-color='%2310b981'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='240' fill='url(%23g3)'/%3E%3Ccircle cx='200' cy='120' r='90' fill='%23ffffff15'/%3E%3Ctext x='38' y='205' fill='%23ffffff' font-size='24' font-family='Inter,Arial' font-weight='600'%3Eds-motors%3C/text%3E%3C/svg%3E",
+      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 240'%3E%3Cdefs%3E%3ClinearGradient id='g3' x1='0' y1='1' x2='1' y2='0'%3E%3Cstop offset='0%' stop-color='%230ea5e9'/%3E%3Cstop offset='100%' stop-color='%2310b981'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='240' fill='url(%23g3)'/%3E%3Ccircle cx='200' cy='120' r='90' fill='%23ffffff15'/%3E%3Ctext x='38' y='205' fill='%23ffffff' font-size='24' font-family='Inter,Arial' font-weight='600'%3EDS Motors%3C/text%3E%3C/svg%3E",
     tech: ["React", "Vercel"],
   },
   {
