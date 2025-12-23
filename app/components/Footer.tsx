@@ -4,9 +4,9 @@ import {
   FaLinkedinIn,
   FaFacebookF,
   FaInstagram,
-  FaYoutube,
+  FaWhatsapp,
+  FaEnvelope,
 } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
 
 export default function Footer() {
   return (
@@ -47,21 +47,49 @@ export default function Footer() {
                 </span>
               </Link>
 
-              {/* Social Icons matching the reference */}
+              {/* Social Icons */}
               <div className="flex gap-4 mt-2">
                 {[
-                  { Icon: FaLinkedinIn, href: "#" },
-                  { Icon: FaFacebookF, href: "#" },
-                  { Icon: FaInstagram, href: "#" },
-                  { Icon: FaXTwitter, href: "#" },
-                  { Icon: FaYoutube, href: "#" },
-                ].map((social, i) => (
+                  {
+                    name: "Email",
+                    Icon: FaEnvelope,
+                    href: "mailto:astrosofttechnology@gmail.com",
+                    hoverClass: "hover:bg-[#0F172A]",
+                  },
+                  {
+                    name: "WhatsApp",
+                    Icon: FaWhatsapp,
+                    href: "https://wa.me/94786692313",
+                    hoverClass: "hover:bg-[#25D366]",
+                  },
+                  {
+                    name: "LinkedIn",
+                    Icon: FaLinkedinIn,
+                    href: "https://www.linkedin.com/company/astrosoft-technology/",
+                    hoverClass: "hover:bg-[#0A66C2]",
+                  },
+                  {
+                    name: "Facebook",
+                    Icon: FaFacebookF,
+                    href: "https://www.facebook.com/profile.php?id=61585606672302",
+                    hoverClass: "hover:bg-[#1877F2]",
+                  },
+                  {
+                    name: "Instagram",
+                    Icon: FaInstagram,
+                    href: "https://www.instagram.com/astrosoft_technology?igsh=Nnk4d2ppeGM1MGtw&utm_source=qr",
+                    hoverClass: "hover:bg-[#E4405F]",
+                  },
+                ].map(({ name, Icon, href, hoverClass }, i) => (
                   <a
-                    key={i}
-                    href={social.href}
-                    className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-900 text-white hover:bg-sky-600 transition-all"
+                    key={`${name}-${i}`}
+                    href={href}
+                    aria-label={name}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`flex h-10 w-10 items-center justify-center rounded-full bg-slate-900 text-white ${hoverClass} transition-all`}
                   >
-                    <social.Icon size={18} />
+                    <Icon size={18} />
                   </a>
                 ))}
               </div>
@@ -70,7 +98,7 @@ export default function Footer() {
 
           {/* Existing Footer Links Grid */}
           <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-4 lg:gap-10">
-            <div className="flex flex-col items-start sm:min-h-[200px]">
+            <div className="flex flex-col items-start sm:min-h-50">
               <Link href="/" className="mb-2">
                 <Image
                   src="/images/Final-Logo-Light-bgremoved.png"
@@ -80,7 +108,7 @@ export default function Footer() {
                   className="h-auto w-24 md:w-32 transform origin-left md:scale-110"
                 />
               </Link>
-              <p className="max-w-[280px] text-sm text-slate-500 leading-relaxed mt-4">
+              <p className="max-w-70 text-sm text-slate-500 leading-relaxed mt-4">
                 Building resilient, elegant software for the future.
               </p>
             </div>
@@ -131,7 +159,9 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <span className="text-slate-500">astrosoft@tech.com</span>
+                  <span className="text-slate-500">
+                    astrosofttechnology@gmail.com
+                  </span>
                 </li>
               </ul>
             </div>
