@@ -179,7 +179,7 @@ export default function NavBar() {
         }`}
       >
         <div className="mx-auto max-w-7xl px-4 py-3 sm:px-6 md:px-12">
-          <div className="flex items-center justify-between h-16 md:h-24 rounded-2xl bg-gradient-to-r from-slate-50 to-slate-100/50 px-4 md:px-6 shadow-sm border border-slate-200/50 backdrop-blur-sm bg-white/80">
+          <div className="flex items-center justify-between h-16 md:h-24 rounded-full bg-gradient-to-r from-slate-50 to-slate-100/50 px-4 md:px-6 shadow-sm border border-slate-200/50 backdrop-blur-sm bg-white/80">
             {/* Left: logo */}
             <div className="flex-shrink-0">
               <Link href="/" className="flex-shrink-0">
@@ -213,7 +213,7 @@ export default function NavBar() {
             <div className="flex items-center justify-end gap-3 md:gap-5">
               <Link
                 href="/contact"
-                className="hidden sm:inline-flex items-center justify-center rounded-2xl bg-slate-900 px-4 py-2 text-xs font-semibold text-white transition hover:bg-slate-800 md:px-7 md:py-2.5 md:text-sm"
+                className="hidden sm:inline-flex items-center justify-center rounded-full bg-slate-900 px-4 py-2 text-xs font-semibold text-white transition hover:bg-slate-800 md:px-7 md:py-2.5 md:text-sm"
               >
                 Talk to us
               </Link>
