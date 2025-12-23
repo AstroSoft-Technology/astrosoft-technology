@@ -19,7 +19,7 @@ const highlights = [
 
 const techIcons: Record<string, ReactElement> = {
   React: (
-    <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none">
+    <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0" fill="none">
       <g stroke="currentColor" strokeWidth="1.6" fill="none">
         <ellipse cx="12" cy="12" rx="10" ry="4.2" />
         <ellipse cx="12" cy="12" rx="4.2" ry="10" />
@@ -28,7 +28,7 @@ const techIcons: Record<string, ReactElement> = {
     </svg>
   ),
   "React Native": (
-    <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none">
+    <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0" fill="none">
       <g stroke="currentColor" strokeWidth="1.6" fill="none">
         <ellipse cx="12" cy="12" rx="10" ry="4.2" />
         <ellipse
@@ -49,8 +49,260 @@ const techIcons: Record<string, ReactElement> = {
       </g>
     </svg>
   ),
+  "Next.js": (
+    <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0" fill="none">
+      <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.6" />
+      <path
+        d="M8.2 8.2v7.6M10 10l6 6"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+    </svg>
+  ),
+  Node: (
+    <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0" fill="none">
+      <path
+        d="M12 3 4 7v10l8 4 8-4V7l-8-4Z"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        fill="none"
+      />
+      <path
+        d="M9 12h6v3l-3 1.5L9 15v-3Z"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        fill="none"
+      />
+    </svg>
+  ),
+  npm: (
+    <svg
+      viewBox="0 0 24 24"
+      className="h-5 w-5 shrink-0"
+      fill="currentColor"
+    >
+      <rect x="3" y="7" width="18" height="10" rx="1.2" />
+      <rect x="6" y="10" width="4" height="4" fill="#fff" />
+      <rect x="12" y="10" width="3" height="4" fill="#fff" />
+      <rect x="12" y="10" width="1" height="4" />
+    </svg>
+  ),
+  Tailwind: (
+    <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0" fill="none">
+      <path
+        d="M4 12c2-4 6-4 8 0 2 4 6 4 8 0"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+      <path
+        d="M4 16c2-4 6-4 8 0"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+    </svg>
+  ),
+  Vue: (
+    <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0" fill="none">
+      <path
+        d="M3 6h5l4 7 4-7h5l-9 15L3 6Z"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        fill="none"
+      />
+      <path d="M6.5 6 12 15 17.5 6" stroke="currentColor" strokeWidth="1.6" />
+    </svg>
+  ),
+  Angular: (
+    <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0" fill="none">
+      <path
+        d="M12 3 4 7l2 10 6 4 6-4 2-10-8-4Z"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        fill="none"
+      />
+      <path
+        d="M8.5 14h7L12 7 8.5 14Z"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        fill="none"
+      />
+    </svg>
+  ),
+  PHP: (
+    <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0" fill="none">
+      <ellipse
+        cx="12"
+        cy="12"
+        rx="9"
+        ry="6"
+        stroke="currentColor"
+        strokeWidth="1.6"
+      />
+      <path
+        d="M7.5 10h2v4h-2m0 0v-4m7 0h2v4h-2m0 0v-4M12 10h2v4h-2v-4Z"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+    </svg>
+  ),
+  Firebase: (
+    <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0" fill="none">
+      <path
+        d="m5 18 3-12 3 6 2-4 6 10-14 0Z"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinejoin="round"
+        fill="none"
+      />
+    </svg>
+  ),
+  "Google Cloud": (
+    <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0" fill="none">
+      <path
+        d="M8 16a4 4 0 1 1 0-8c1.2 0 2.3.5 3 1.3a4 4 0 1 1 5 6.7"
+        stroke="currentColor"
+        strokeWidth="1.6"
+      />
+      <path
+        d="M10 16h7"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+    </svg>
+  ),
+  AWS: (
+    <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0" fill="none">
+      <path
+        d="M4 14c3 3 13 3 16 0"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+      <path
+        d="M6 10h3m2 0h3m2 0h3"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+    </svg>
+  ),
+  Android: (
+    <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0" fill="none">
+      <rect
+        x="6"
+        y="8"
+        width="12"
+        height="9"
+        rx="2"
+        stroke="currentColor"
+        strokeWidth="1.6"
+      />
+      <path
+        d="M8 7l2-3M16 7l-2-3"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+      <circle cx="10" cy="11" r="0.8" fill="currentColor" />
+      <circle cx="14" cy="11" r="0.8" fill="currentColor" />
+    </svg>
+  ),
+  HTML5: (
+    <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0" fill="none">
+      <path
+        d="M5 3h14l-1.5 16L12 21l-5.5-2L5 3Z"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        fill="none"
+      />
+      <path d="M8 7h8M8 11h7M9 15h6" stroke="currentColor" strokeWidth="1.6" />
+    </svg>
+  ),
+  CSS3: (
+    <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0" fill="none">
+      <path
+        d="M5 3h14l-1.5 16L12 21l-5.5-2L5 3Z"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        fill="none"
+      />
+      <path d="M8 7h8M8 11h8M8 15h7" stroke="currentColor" strokeWidth="1.6" />
+    </svg>
+  ),
+  WordPress: (
+    <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0" fill="none">
+      <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.6" />
+      <path
+        d="M9 8c1 0 2 2 3 6 1 3 2 5 2 5M7 12c0 2 1 4 2 7"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+    </svg>
+  ),
+  Laravel: (
+    <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0" fill="none">
+      <path
+        d="M4 8 10 5l4 2-6 3-4-2Zm6 3 4 2 6-3-4-2-6 3Zm0 0v6l4 2v-6l-4-2Z"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        fill="none"
+      />
+    </svg>
+  ),
+  Flutter: (
+    <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0" fill="none">
+      <path
+        d="m6 14 8-8h4l-12 12 4 0 8-8"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+    </svg>
+  ),
+  MongoDB: (
+    <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0" fill="none">
+      <path
+        d="M12 3s5 4 5 10-5 8-5 8-5-2-5-8 5-10 5-10Z"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        fill="none"
+      />
+      <path
+        d="M12 7v10"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+    </svg>
+  ),
+  MySQL: (
+    <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0" fill="none">
+      <path
+        d="M6 16c0-3 3-6 6-6s6 3 6 6"
+        stroke="currentColor"
+        strokeWidth="1.6"
+      />
+      <path
+        d="M9 16c0-2 1.5-3 3-3s3 1 3 3"
+        stroke="currentColor"
+        strokeWidth="1.6"
+      />
+      <path
+        d="M3 16h18"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+    </svg>
+  ),
   Python: (
-    <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none">
+    <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0" fill="none">
       <path
         d="M11.5 4.5h3.5a3 3 0 0 1 3 3V11c0 1.1-.9 2-2 2h-6a2 2 0 0 0-2 2v1.5c0 1.1.9 2 2 2H17"
         stroke="currentColor"
@@ -70,7 +322,7 @@ const techIcons: Record<string, ReactElement> = {
     </svg>
   ),
   Postgres: (
-    <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none">
+    <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0" fill="none">
       <ellipse
         cx="12"
         cy="6"
@@ -93,7 +345,7 @@ const techIcons: Record<string, ReactElement> = {
     </svg>
   ),
   Django: (
-    <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none">
+    <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0" fill="none">
       <rect
         x="5"
         y="5"
@@ -127,7 +379,7 @@ const techIcons: Record<string, ReactElement> = {
     </svg>
   ),
   FastAPI: (
-    <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none">
+    <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0" fill="none">
       <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.6" />
       <path
         d="M9 12h6m-2.5-4.5-3 9"
@@ -139,7 +391,7 @@ const techIcons: Record<string, ReactElement> = {
     </svg>
   ),
   "Machine Learning": (
-    <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none">
+    <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0" fill="none">
       <rect
         x="4"
         y="6"
@@ -161,12 +413,16 @@ const techIcons: Record<string, ReactElement> = {
     </svg>
   ),
   Vercel: (
-    <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="currentColor">
+    <svg
+      viewBox="0 0 24 24"
+      className="h-5 w-5 shrink-0"
+      fill="currentColor"
+    >
       <path d="m12 5 8.5 14h-17z" />
     </svg>
   ),
   Expo: (
-    <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none">
+    <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0" fill="none">
       <path
         d="m9 18 3-12 3 12"
         stroke="currentColor"
@@ -182,6 +438,35 @@ const techIcons: Record<string, ReactElement> = {
       />
     </svg>
   ),
+};
+const techColors: Record<string, { bg: string; fg: string }> = {
+  React: { bg: "#E0F2FE", fg: "#0EA5E9" },
+  "React Native": { bg: "#E0F2FE", fg: "#0284C7" },
+  "Next.js": { bg: "#F8FAFC", fg: "#0B1220" },
+  Node: { bg: "#E6F7F0", fg: "#047857" },
+  npm: { bg: "#FEE2E2", fg: "#B91C1C" },
+  Tailwind: { bg: "#E0F7FA", fg: "#0EA5A3" },
+  Vue: { bg: "#E8F5E9", fg: "#16A34A" },
+  Angular: { bg: "#FEE2E2", fg: "#DC2626" },
+  PHP: { bg: "#EDE9FE", fg: "#4C1D95" },
+  Firebase: { bg: "#FFF7ED", fg: "#EA580C" },
+  "Google Cloud": { bg: "#EFF6FF", fg: "#3B82F6" },
+  AWS: { bg: "#FFF7ED", fg: "#7C2D12" },
+  Android: { bg: "#ECFDF5", fg: "#059669" },
+  HTML5: { bg: "#FFF1F2", fg: "#DC2626" },
+  CSS3: { bg: "#EFF6FF", fg: "#2563EB" },
+  WordPress: { bg: "#E0F2FE", fg: "#0369A1" },
+  Laravel: { bg: "#FFE4E6", fg: "#E11D48" },
+  Flutter: { bg: "#E0F2FE", fg: "#0284C7" },
+  MongoDB: { bg: "#ECFDF5", fg: "#16A34A" },
+  MySQL: { bg: "#E0E7FF", fg: "#4338CA" },
+  Python: { bg: "#FFF7E6", fg: "#D97706" },
+  Postgres: { bg: "#E0ECFF", fg: "#3B82F6" },
+  Django: { bg: "#E9F5EE", fg: "#166534" },
+  FastAPI: { bg: "#E6FFFA", fg: "#0F766E" },
+  "Machine Learning": { bg: "#F1F5F9", fg: "#334155" },
+  Vercel: { bg: "#F8FAFC", fg: "#0F172A" },
+  Expo: { bg: "#F3F4F6", fg: "#111827" },
 };
 
 const work = [
@@ -553,17 +838,27 @@ export default function Home() {
                   Technology used
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  {item.tech.map((tag) => (
-                    <span
-                      key={tag}
-                      className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700"
-                    >
-                      {techIcons[tag] ?? (
-                        <span className="inline-block h-2 w-2 rounded-full bg-slate-400" />
-                      )}
-                      {tag}
-                    </span>
-                  ))}
+                  {item.tech.map((tag) => {
+                    const colors = techColors[tag] ?? {
+                      bg: "#F1F5F9",
+                      fg: "#334155",
+                    };
+                    return (
+                      <span
+                        key={tag}
+                        className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold"
+                        style={{
+                          backgroundColor: colors.bg,
+                          color: colors.fg,
+                        }}
+                      >
+                        {techIcons[tag] ?? (
+                          <span className="inline-block h-3 w-3 rounded-full bg-slate-400" />
+                        )}
+                        {tag}
+                      </span>
+                    );
+                  })}
                 </div>
               </div>
             </div>
