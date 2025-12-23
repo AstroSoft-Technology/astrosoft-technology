@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import type { ReactElement } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { BubbleBackground } from "./components/BubbleBackground";
 
 const stats = [
   { value: "50+", label: "Projects delivered" },
@@ -570,15 +571,19 @@ export default function Home() {
         />
       </div>
 
-      <section className="card overflow-hidden px-8 py-10 sm:px-10 animate-fade-up">
-        <div className="flex flex-wrap items-center gap-3 text-sm text-slate-700">
+      <section className="card overflow-hidden px-8 py-10 sm:px-10 animate-fade-up relative">
+        <BubbleBackground
+          interactive={true}
+          className="absolute inset-0 -z-0"
+        />
+        <div className="relative z-10 flex flex-wrap items-center gap-3 text-sm text-slate-700">
           <span className="pill">Enterprise-grade builds</span>
           <span>
             <span className="font-semibold text-slate-900">AstroSoft</span>{" "}
             <span className="font-semibold text-sky-500">Technologies</span>
           </span>
         </div>
-        <div className="mt-8 grid gap-10 lg:grid-cols-2 lg:items-center">
+        <div className="relative z-10 mt-8 grid gap-10 lg:grid-cols-2 lg:items-center">
           <div className="space-y-8">
             <div className="space-y-4">
               <h1 className="text-4xl font-semibold leading-tight tracking-tight text-slate-900 sm:text-5xl">
