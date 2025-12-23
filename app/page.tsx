@@ -573,7 +573,10 @@ export default function Home() {
       <section className="card overflow-hidden px-8 py-10 sm:px-10 animate-fade-up">
         <div className="flex flex-wrap items-center gap-3 text-sm text-slate-700">
           <span className="pill">Enterprise-grade builds</span>
-          <span>AstroSoft Technology</span>
+          <span>
+            <span className="font-semibold text-slate-900">AstroSoft</span>{" "}
+            <span className="font-semibold text-sky-500">Technologies</span>
+          </span>
         </div>
         <div className="mt-8 grid gap-10 lg:grid-cols-2 lg:items-center">
           <div className="space-y-8">
@@ -618,41 +621,172 @@ export default function Home() {
           </div>
 
           <div className="relative">
-            <div className="card relative overflow-hidden p-6">
-              <div className="absolute inset-0 bg-linear-to-br from-slate-900 via-slate-800 to-slate-900" />
-              <div className="relative space-y-6 text-white">
-                <div className="flex items-center justify-between text-sm text-slate-300">
-                  <span>Delivery sprints</span>
-                  <span>Confidence at launch</span>
+            <div className="card relative overflow-hidden p-4 md:p-6 bg-gradient-to-br from-slate-50 to-slate-100">
+              <div className="relative space-y-4 text-slate-900">
+                <div className="text-center mb-6 animate-fade-up">
+                  <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 mb-1">
+                    WHAT WE DO
+                  </h3>
+                  <p className="text-lg font-semibold text-slate-900">
+                    Our Work Process
+                  </p>
                 </div>
-                <div className="space-y-4">
-                  {[
-                    "Discovery",
-                    "Design system",
-                    "MVP",
-                    "Scale",
-                    "Sustain",
-                  ].map((phase, index) => (
-                    <div key={phase} className="flex items-center gap-3">
-                      <div className="h-2.5 w-full rounded-full bg-white/10">
-                        <div
-                          className="h-2.5 rounded-full bg-emerald-300"
-                          style={{ width: `${60 + index * 8}%` }}
-                        />
-                      </div>
-                      <span className="w-28 text-sm text-slate-200">
-                        {phase}
-                      </span>
+
+                {/* Step 01 - Right aligned */}
+                <div
+                  className="relative flex items-center justify-end animate-fade-up group"
+                  style={{ animationDelay: "100ms" }}
+                >
+                  <div className="relative bg-gradient-to-r from-sky-500 to-sky-600 text-white rounded-xl p-4 max-w-xs shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer">
+                    <div className="absolute -left-3 top-1/2 -translate-y-1/2 flex h-12 w-12 items-center justify-center rounded-full bg-sky-700 text-white font-bold text-lg shadow-lg transition-all duration-300 group-hover:scale-125 group-hover:rotate-12 group-hover:shadow-xl">
+                      01
                     </div>
-                  ))}
-                </div>
-                <div className="rounded-2xl bg-white/10 p-4 text-sm leading-6 text-slate-200 shadow-inner">
-                  "AstroSoft translated our roadmap into a reliable platform in
-                  record time. Their calm delivery kept our team focused on the
-                  customer."
-                  <div className="mt-3 font-semibold text-white">
-                    COO, Global Retail Group
+                    <div className="ml-6">
+                      <div className="flex items-center gap-2 mb-2">
+                        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/20 transition-all duration-300 group-hover:bg-white/30 group-hover:rotate-12">
+                          <svg
+                            className="h-4 w-4 transition-transform duration-300 group-hover:scale-110"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
+                            />
+                          </svg>
+                        </div>
+                        <h4 className="text-sm font-bold transition-transform duration-300 group-hover:translate-x-1">
+                          Share Your Vision
+                        </h4>
+                      </div>
+                      <p className="text-xs text-white/90 leading-relaxed transition-opacity duration-300 group-hover:text-white">
+                        Contact us with your project idea and requirements.
+                      </p>
+                    </div>
                   </div>
+                </div>
+
+                {/* Connector */}
+                <div className="flex justify-center animate-soft-pulse">
+                  <svg
+                    className="h-8 w-8 text-slate-300 transition-all duration-300 hover:text-slate-500 hover:scale-125"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                    />
+                  </svg>
+                </div>
+
+                {/* Step 02 - Left aligned */}
+                <div
+                  className="relative flex items-center justify-start animate-fade-up group"
+                  style={{ animationDelay: "200ms" }}
+                >
+                  <div className="relative bg-gradient-to-r from-teal-500 to-teal-600 text-white rounded-xl p-4 max-w-xs shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer">
+                    <div className="absolute -right-3 top-1/2 -translate-y-1/2 flex h-12 w-12 items-center justify-center rounded-full bg-teal-700 text-white font-bold text-lg shadow-lg transition-all duration-300 group-hover:scale-125 group-hover:rotate-12 group-hover:shadow-xl">
+                      02
+                    </div>
+                    <div className="mr-6">
+                      <div className="flex items-center gap-2 mb-2">
+                        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/20 transition-all duration-300 group-hover:bg-white/30 group-hover:rotate-12">
+                          <svg
+                            className="h-4 w-4 transition-transform duration-300 group-hover:scale-110"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"
+                            />
+                          </svg>
+                        </div>
+                        <h4 className="text-sm font-bold transition-transform duration-300 group-hover:translate-x-1">
+                          We Plan & Build
+                        </h4>
+                      </div>
+                      <p className="text-xs text-white/90 leading-relaxed transition-opacity duration-300 group-hover:text-white">
+                        Our team designs and develops with regular updates.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Connector */}
+                <div className="flex justify-center animate-soft-pulse">
+                  <svg
+                    className="h-8 w-8 text-slate-300 transition-all duration-300 hover:text-slate-500 hover:scale-125"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                    />
+                  </svg>
+                </div>
+
+                {/* Step 03 - Right aligned */}
+                <div
+                  className="relative flex items-center justify-end animate-fade-up group"
+                  style={{ animationDelay: "300ms" }}
+                >
+                  <div className="relative bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-xl p-4 max-w-xs shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer">
+                    <div className="absolute -left-3 top-1/2 -translate-y-1/2 flex h-12 w-12 items-center justify-center rounded-full bg-emerald-700 text-white font-bold text-lg shadow-lg transition-all duration-300 group-hover:scale-125 group-hover:rotate-12 group-hover:shadow-xl">
+                      03
+                    </div>
+                    <div className="ml-6">
+                      <div className="flex items-center gap-2 mb-2">
+                        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/20 transition-all duration-300 group-hover:bg-white/30 group-hover:rotate-12">
+                          <svg
+                            className="h-4 w-4 transition-transform duration-300 group-hover:scale-110"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+                            />
+                          </svg>
+                        </div>
+                        <h4 className="text-sm font-bold transition-transform duration-300 group-hover:translate-x-1">
+                          Launch & Support
+                        </h4>
+                      </div>
+                      <p className="text-xs text-white/90 leading-relaxed transition-opacity duration-300 group-hover:text-white">
+                        We deliver and provide ongoing support reliably.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  className="pt-4 text-center animate-fade-up"
+                  style={{ animationDelay: "400ms" }}
+                >
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center justify-center rounded-full bg-slate-900 px-6 py-2.5 text-xs font-semibold text-white shadow-lg transition-all duration-300 hover:bg-slate-800 hover:shadow-2xl hover:-translate-y-2 hover:scale-110 active:scale-95"
+                  >
+                    Get Started Today
+                  </Link>
                 </div>
               </div>
             </div>
