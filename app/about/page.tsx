@@ -34,29 +34,40 @@ const milestones = [
   },
 ];
 
-const leaders: { name: string; role: string; image?: string; bio?: string }[] =
-  [
-    {
-      name: "Shiwarne Silva",
-      role: "Founder & CEO",
-      image: "/images/Shiwarne.JPG",
-      bio: "Sets vision, client outcomes, and calm delivery standards across every program.",
-    },
-    {
-      name: "Jehan Silva",
-      role: "Founder & COO",
-      image: "/images/Jehan.JPG",
-      bio: "Runs operations and delivery quality, keeping sprints predictable and teams aligned.",
-    },
-    {
-      name: "Dinali Perera",
-      role: "Co-Founder & CTO",
-      image: "/images/Dinali.JPG",
-      bio: "Leads engineering strategy, security, and scalability for mission-critical platforms.",
-    },
-  ];
+type Leader = {
+  name: string;
+  role: string;
+  image: string;
+  bio: string;
+  accent: string; // circle + dot color
+};
+
+const leaders: Leader[] = [
+  {
+    name: "Jehan Silva",
+    role: "Founder & COO",
+    image: "/images/Jehan.JPG",
+    bio: "Runs operations and delivery quality, keeping sprints predictable and teams aligned.",
+    accent: "#D9F0FF",
+  },
+  {
+    name: "Shiwarne Silva",
+    role: "Founder & CEO",
+    image: "/images/Shiwarne.jpeg",
+    bio: "Sets vision, client outcomes, and calm delivery standards across every program.",
+    accent: "#FEEFD3",
+  },
+  {
+    name: "Dinali Perera",
+    role: "Co-Founder & CTO",
+    image: "/images/Dinali.JPG",
+    bio: "Leads engineering strategy, security, and scalability for mission-critical platforms.",
+    accent: "#E8F6EF",
+  },
+];
 
 export default function AboutPage() {
+  const centerIndex = Math.floor(leaders.length / 2);
   return (
     <div className="flex flex-col gap-12">
       <section className="space-y-4 animate-fade-up">
@@ -136,87 +147,72 @@ export default function AboutPage() {
             Our Leadership
           </h2>
         </div>
-        <div className="mt-6 grid gap-6 md:grid-cols-3">
-          {leaders.map((person, index) => (
-            <div
-              key={person.name}
-              className="group relative rounded-2xl border border-slate-200 bg-white p-5 animate-fade-up overflow-visible"
-              style={{ animationDelay: `${index * 90 + 160}ms` }}
-            >
-              {person.image ? (
-                <div className="relative aspect-square w-full overflow-hidden rounded-xl border border-slate-200">
+
+        {/* Centered rows like the reference */}
+        <div className="mt-10 flex flex-wrap justify-center gap-12">
+          {leaders.map((person, index) => {
+            const isCenter = index === centerIndex;
+            return (
+              <div
+                key={`${person.name}-${index}`}
+                className={`group flex ${
+                  isCenter
+                    ? "order-1 md:order-0 w-80"
+                    : "order-2 md:order-0 w-72"
+                } flex-col items-center text-center animate-fade-up`}
+                style={{ animationDelay: `${index * 80 + 160}ms` }}
+              >
+                {/* Circular avatar with accent background */}
+                <div
+                  className={`relative ${
+                    isCenter
+                      ? "h-64 w-64 -translate-y-2 md:-translate-y-3"
+                      : "h-56 w-56"
+                  } overflow-hidden rounded-full ring-8 ring-white shadow-md transition-transform duration-300 ease-out group-hover:scale-105 group-hover:shadow-lg`}
+                  style={{ backgroundColor: person.accent }}
+                >
                   <Image
                     src={person.image}
-                    alt={`${person.name} portrait`}
+                    alt={person.name}
                     fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
+                    sizes={isCenter ? "256px" : "224px"}
                     className="object-cover"
                     priority
                   />
                 </div>
-              ) : (
-                <div className="aspect-square w-full overflow-hidden rounded-xl border border-slate-200 bg-gradient-to-br from-slate-100 to-slate-200">
-                  <div className="flex h-full items-center justify-center text-slate-400">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      className="h-16 w-16"
-                      aria-hidden="true"
-                    >
-                      <circle
-                        cx="12"
-                        cy="8"
-                        r="4"
-                        stroke="currentColor"
-                        strokeWidth="1.8"
-                      />
-                      <path
-                        d="M4 20c0-4 4-6 8-6s8 2 8 6"
-                        stroke="currentColor"
-                        strokeWidth="1.8"
-                        strokeLinecap="round"
-                      />
-                    </svg>
-                  </div>
-                </div>
-              )}
-              <div className="mt-4">
-                <div className="text-m font-semibold text-slate-900">
-                  {person.name}
-                </div>
-                <div className="text-sm text-slate-600">{person.role}</div>
-              </div>
 
-              <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center">
-                <div className="rounded-3xl border border-slate-200 bg-white/95 p-5 shadow-2xl backdrop-blur-sm transition duration-300 ease-out opacity-0 translate-y-3 scale-90 group-hover:opacity-100 group-hover:translate-y-0 group-hover:scale-100">
-                  <div className="relative h-72 w-72 overflow-hidden rounded-2xl border border-slate-200 mx-auto">
-                    <Image
-                      src={
-                        person.image ?? "/images/Final-Logo-Light-bgremoved.png"
-                      }
-                      alt={`${person.name} enlarged portrait`}
-                      fill
-                      className="object-cover object-center"
-                      sizes="(max-width: 768px) 100vw, 320px"
-                      priority
-                    />
+                {/* Accent dot */}
+                <div
+                  className={`mt-3 ${
+                    isCenter ? "h-6 w-6" : "h-5 w-5"
+                  } rounded-full border border-white shadow-sm transition-transform duration-300 ease-out group-hover:scale-110`}
+                  style={{ backgroundColor: person.accent }}
+                  aria-hidden="true"
+                />
+
+                {/* Text stack: role, name, bio */}
+                <div className="mt-3 space-y-1">
+                  <div className="text-base font-semibold uppercase tracking-wide text-slate-600">
+                    {person.role}
                   </div>
-                  <div className="mt-3 text-center">
-                    <div className="text-lg font-semibold text-slate-900">
-                      {person.name}
-                    </div>
-                    <div className="text-sm text-slate-600">{person.role}</div>
-                    {person.bio ? (
-                      <p className="mt-3 text-sm text-slate-600 leading-relaxed">
-                        {person.bio}
-                      </p>
-                    ) : null}
+                  <div
+                    className={`${
+                      isCenter ? "text-xl" : "text-lg"
+                    } font-semibold text-slate-900`}
+                  >
+                    {person.name}
                   </div>
+                  <p
+                    className={`mx-auto ${
+                      isCenter ? "max-w-[36ch]" : "max-w-[32ch]"
+                    } text-sm leading-relaxed text-slate-600`}
+                  >
+                    {person.bio}
+                  </p>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
     </div>
