@@ -18,19 +18,19 @@ const values = [
 
 const milestones = [
   {
-    year: "2016",
-    detail:
-      "AstroSoft Technology founded to bring enterprise-grade engineering to product teams quickly.",
-  },
-  {
-    year: "2019",
-    detail:
-      "Expanded design and data practices, delivering first multi-region platform modernization.",
-  },
-  {
     year: "2023",
     detail:
-      "Launched reliability program with 24/7 monitoring and proactive incident playbooks.",
+      "AstroSoft Technology launched, pairing enterprise-grade engineering with rapid product delivery.",
+  },
+  {
+    year: "2024",
+    detail:
+      "Expanded design and data practices; delivered first multi-region modernization for a global client.",
+  },
+  {
+    year: "2025",
+    detail:
+      "Rolled out reliability program with 24/7 monitoring, proactive playbooks, and AI-assisted operations.",
   },
 ];
 
