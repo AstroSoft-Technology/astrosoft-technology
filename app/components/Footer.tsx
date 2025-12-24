@@ -53,7 +53,7 @@ export default function Footer() {
                   {
                     name: "Email",
                     Icon: FaEnvelope,
-                    href: "mailto:astrosofttechnology@gmail.com",
+                    href: "mailto:info@astrosofttech.dev",
                     hoverClass: "hover:bg-[#0F172A]",
                   },
                   {
@@ -159,9 +159,7 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <span className="text-slate-500">
-                    astrosofttechnology@gmail.com
-                  </span>
+                  <span className="text-slate-500">info@astrosofttech.dev</span>
                 </li>
               </ul>
             </div>

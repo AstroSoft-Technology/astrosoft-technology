@@ -95,8 +95,8 @@ function IconWhatsApp(props: SVGProps<SVGSVGElement>) {
 const contacts = [
   {
     label: "Email",
-    value: "astrosofttechnology@gmail.com",
-    href: "mailto:astrosofttechnology@gmail.com",
+    value: "info@astrosofttech.dev",
+    href: "mailto:info@astrosofttech.dev",
     Icon: IconMail,
   },
   {

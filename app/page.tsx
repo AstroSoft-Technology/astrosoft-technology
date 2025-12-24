@@ -7,9 +7,8 @@ import Link from "next/link";
 import { BubbleBackground } from "./components/BubbleBackground";
 
 const stats = [
-  { value: "50+", label: "Projects delivered" },
-  { value: "30+", label: "Team members" },
-  { value: "5+", label: "Years experience" },
+  { value: "20+", label: "Projects delivered" },
+  { value: "2+", label: "Years experience" },
 ];
 
 const highlights = [

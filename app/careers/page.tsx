@@ -142,7 +142,7 @@ export default function CareersPage() {
                   </div>
                 </div>
                 <a
-                  href={`mailto:astrosofttechnology@gmail.com?subject=Application for ${encodeURIComponent(
+                  href={`mailto:careers@astrosofttech.dev?subject=Application for ${encodeURIComponent(
                     role.title
                   )}`}
                   className="inline-flex items-center justify-center rounded-full bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-slate-800"
@@ -187,12 +187,12 @@ export default function CareersPage() {
                         How to Apply: Send your resume and relevant work samples
                         to{" "}
                         <a
-                          href={`mailto:astrosofttechnology@gmail.com?subject=Application for ${encodeURIComponent(
+                          href={`mailto:careers@astrosofttech.dev?subject=Application for ${encodeURIComponent(
                             role.title
                           )}`}
                           className="text-slate-900 underline"
                         >
-                          astrosofttechnology@gmail.com
+                          careers@astrosofttech.dev
                         </a>
                       </p>
                     </div>
