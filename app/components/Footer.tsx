@@ -200,14 +200,21 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Bottom Copyright Bar */}
-          <div className="mt-8 border-t border-slate-100 pt-5 flex justify-center">
+          {/* Tagline */}
+          <div className="mt-12 mb-6 flex justify-center">
+            <p className="text-center text-base md:text-lg font-bold text-slate-500 leading-relaxed">
+              Building resilient, elegant software for the future.
+            </p>
+          </div>
+
+          {/* Divider */}
+          <div className="border-t border-slate-100 pt-8 flex justify-center mb-6">
             <div className="flex items-center text-center">
               <p className="text-[11px] text-slate-400 font-medium">
                 <span className="text-xs font-bold text-slate-900 tracking-tight mr-1.5">
-                  astrosoft{" "}
+                  AstroSoft{" "}
                   <span className="text-sky-600 font-semibold">
-                    technologies
+                    Technologies
                   </span>
                 </span>
                 © {new Date().getFullYear()} AstroSoft Technology. All rights

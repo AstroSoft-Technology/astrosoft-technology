@@ -559,7 +559,7 @@ export default function Home() {
   return (
     <div className="flex flex-col gap-16">
       {/* Mobile logo section */}
-      <div className="md:hidden flex justify-center pt-8">
+      <div className="md:hidden flex justify-center pt-1">
         <Image
           src="/images/Final-Logo-Light-bgremoved.png"
           alt="AstroSoft Technology"
