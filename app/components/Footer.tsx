@@ -108,9 +108,6 @@ export default function Footer() {
                   className="h-auto w-24 md:w-32 transform origin-left md:scale-110"
                 />
               </Link>
-              <p className="max-w-70 text-sm text-slate-500 leading-relaxed mt-4">
-                Building resilient, elegant software for the future.
-              </p>
             </div>
 
             <div>
