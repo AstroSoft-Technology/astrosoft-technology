@@ -153,6 +153,7 @@ const navItems: {
 
 export default function NavBar() {
   const [hidden, setHidden] = useState(false);
+  const [mobileHidden, setMobileHidden] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -160,10 +161,23 @@ export default function NavBar() {
     const handler = () => {
       const y = window.scrollY;
       const goingDown = y > lastY;
+
+      // Check if near the bottom of the page
+      const isNearBottom =
+        window.innerHeight + y >= document.body.scrollHeight - 100;
+
       if (y > 80 && goingDown) {
         setHidden(true);
       } else {
         setHidden(false);
+      }
+
+      // Mobile navbar: hide when scrolling down or near bottom
+      if ((y > 80 && goingDown) || isNearBottom) {
+        setMobileHidden(true);
+      } else if (!goingDown) {
+        // Only show when scrolling UP
+        setMobileHidden(false);
       }
       lastY = y;
     };
@@ -223,7 +237,11 @@ export default function NavBar() {
       </header>
 
       {/* Mobile Bottom Navigation */}
-      <nav className="fixed bottom-0 left-0 right-0 z-40 lg:hidden">
+      <nav
+        className={`fixed bottom-0 left-0 right-0 z-40 lg:hidden transition-transform duration-300 ease-out ${
+          mobileHidden ? "translate-y-full" : "translate-y-0"
+        }`}
+      >
         <div className="mx-auto max-w-md px-4 pb-4">
           <div className="flex items-center justify-around rounded-full bg-slate-900 px-2 py-2 shadow-lg">
             {navItems.map(({ href, label, Icon }) => {
