@@ -1,7 +1,12 @@
-import type { SVGProps } from "react";
-import { Analytics } from "@vercel/analytics/next";
+"use client";
 
-function IconMail(props: SVGProps<SVGSVGElement>) {
+import { useState, type SVGProps } from "react";
+import Link from "next/link";
+
+type IconProps = SVGProps<SVGSVGElement>;
+
+// --- Icons ---
+function IconMail(props: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -30,7 +35,7 @@ function IconMail(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-function IconPhone(props: SVGProps<SVGSVGElement>) {
+function IconPhone(props: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -50,7 +55,7 @@ function IconPhone(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-function IconLinkedIn(props: SVGProps<SVGSVGElement>) {
+function IconLinkedIn(props: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -64,7 +69,7 @@ function IconLinkedIn(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-function IconFacebook(props: SVGProps<SVGSVGElement>) {
+function IconFacebook(props: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -78,7 +83,7 @@ function IconFacebook(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-function IconWhatsApp(props: SVGProps<SVGSVGElement>) {
+function IconWhatsApp(props: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -129,6 +134,63 @@ const social = [
 ];
 
 export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    project: "",
+  });
+
+  const [errors, setErrors] = useState({ email: "", phone: "" });
+
+  // Validations
+  const validateEmail = (email: string) =>
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  const validatePhone = (phone: string) => /^\+?[0-9\s\-]{7,15}$/.test(phone);
+
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+
+    // Clear errors as user types
+    if (name === "email") setErrors((prev) => ({ ...prev, email: "" }));
+    if (name === "phone") setErrors((prev) => ({ ...prev, phone: "" }));
+  };
+
+  const handleFormSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    let hasError = false;
+    if (!validateEmail(formData.email)) {
+      setErrors((prev) => ({
+        ...prev,
+        email: "Please enter a valid work email.",
+      }));
+      hasError = true;
+    }
+    if (!validatePhone(formData.phone)) {
+      setErrors((prev) => ({
+        ...prev,
+        phone: "Please enter a valid phone number.",
+      }));
+      hasError = true;
+    }
+
+    if (hasError) return;
+
+    const recipient = "info@astrosofttech.dev";
+    const subject = `Project Inquiry from ${formData.name}`;
+    const body = `Customer Details:\n------------------\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nProject Overview:\n------------------\n${formData.project}`;
+
+    // Use window.open to ensure it triggers properly in all browsers
+    const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoLink;
+  };
+
   return (
     <div className="flex flex-col gap-12">
       <section className="space-y-4 animate-fade-up">
@@ -174,16 +236,12 @@ export default function ContactPage() {
                   <div className="text-sm font-semibold text-slate-900">
                     {label}
                   </div>
-                  {href ? (
-                    <a
-                      href={href}
-                      className="text-base text-slate-700 underline decoration-2 underline-offset-8"
-                    >
-                      {value}
-                    </a>
-                  ) : (
-                    <div className="text-base text-slate-700">{value}</div>
-                  )}
+                  <a
+                    href={href}
+                    className="text-base text-slate-700 underline decoration-2 underline-offset-8"
+                  >
+                    {value}
+                  </a>
                 </div>
               </div>
             ))}
@@ -209,62 +267,84 @@ export default function ContactPage() {
             </div>
           </div>
         </div>
-        {/* Right form panel */}
-        <div
-          className="card p-6 lg:col-span-2 animate-fade-up"
-          style={{ animationDelay: "130ms" }}
-        >
-          <h2 className="text-2xl font-semibold text-slate-900 mb-4">
+
+        {/* Right Side: Contact Form */}
+        <div className="card p-6 lg:col-span-2">
+          <h2 className="text-2xl font-semibold text-slate-900 mb-6">
             Send us a message
           </h2>
-          <form className="space-y-4">
+          <form onSubmit={handleFormSubmit} className="space-y-6">
             <div className="grid gap-4 sm:grid-cols-2">
-              <label className="flex flex-col gap-2 text-sm sm:text-base font-medium text-slate-800">
+              <label className="flex flex-col gap-2 text-sm font-medium text-slate-800">
                 Name
                 <input
                   type="text"
                   name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
                   placeholder="Your name"
-                  className="rounded-xl border border-slate-200 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-400"
+                  className="rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-slate-400"
                   required
                 />
               </label>
-              <label className="flex flex-col gap-2 text-sm sm:text-base font-medium text-slate-800">
-                Work email
+
+              <label className="flex flex-col gap-2 text-sm font-medium text-slate-800">
+                Work Email
                 <input
                   type="email"
                   name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
                   placeholder="name@company.com"
-                  className="rounded-xl border border-slate-200 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-400"
+                  className={`rounded-xl border ${
+                    errors.email ? "border-red-500" : "border-slate-200"
+                  } px-4 py-3 text-sm outline-none focus:border-slate-400`}
                   required
                 />
+                {errors.email && (
+                  <span className="text-xs text-red-500 mt-1 font-medium">
+                    {errors.email}
+                  </span>
+                )}
+              </label>
+
+              <label className="flex flex-col gap-2 text-sm font-medium text-slate-800">
+                Phone Number
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleInputChange}
+                  placeholder="+94 XX XXX XXXX"
+                  className={`rounded-xl border ${
+                    errors.phone ? "border-red-500" : "border-slate-200"
+                  } px-4 py-3 text-sm outline-none focus:border-slate-400`}
+                  required
+                />
+                {errors.phone && (
+                  <span className="text-xs text-red-500 mt-1 font-medium">
+                    {errors.phone}
+                  </span>
+                )}
               </label>
             </div>
-            <label className="flex flex-col gap-2 text-sm sm:text-base font-medium text-slate-800">
+
+            <label className="flex flex-col gap-2 text-sm font-medium text-slate-800">
               Project overview
               <textarea
                 name="project"
-                placeholder="What are you looking to build or modernize?"
-                rows={4}
-                className="rounded-xl border border-slate-200 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-400"
+                value={formData.project}
+                onChange={handleInputChange}
+                placeholder="What are you looking to build?"
+                rows={5}
+                className="rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-slate-400"
                 required
               />
             </label>
-            <label className="flex flex-col gap-2 text-sm sm:text-base font-medium text-slate-800">
-              Timeline
-              <select
-                name="timeline"
-                className="rounded-xl border border-slate-200 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-400"
-              >
-                <option>As soon as possible</option>
-                <option>1-3 months</option>
-                <option>3-6 months</option>
-                <option>6+ months</option>
-              </select>
-            </label>
+
             <button
               type="submit"
-              className="inline-flex items-center justify-center rounded-full bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-slate-800"
+              className="inline-flex items-center justify-center rounded-full bg-slate-900 px-8 py-3.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-slate-800 active:scale-95"
             >
               Send message
             </button>
