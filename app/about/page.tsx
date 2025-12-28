@@ -18,17 +18,17 @@ const values = [
 
 const milestones = [
   {
-    year: "2023",
+    year: "2024",
     detail:
-      "AstroSoft Technology launched, pairing enterprise-grade engineering with rapid product delivery.",
+      "AstroSoft Technology launched; shipped first production web and mobile builds for early clients.",
   },
   {
-    year: "2024",
+    year: "2025 (Q1)",
     detail:
       "Expanded design and data practices; delivered first multi-region modernization for a global client.",
   },
   {
-    year: "2025",
+    year: "2025 (Q3)",
     detail:
       "Rolled out reliability program with 24/7 monitoring, proactive playbooks, and AI-assisted operations.",
   },
