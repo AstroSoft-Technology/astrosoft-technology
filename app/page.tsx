@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 import type { ReactElement } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -550,11 +550,36 @@ const services = [
 
 export default function Home() {
   const [workIndex, setWorkIndex] = useState(0);
+  const resetTimeout = useRef<NodeJS.Timeout | null>(null);
 
   const visibleWork = useMemo(() => {
     if (work.length <= 3) return work;
     return [0, 1, 2].map((offset) => work[(workIndex + offset) % work.length]);
   }, [workIndex]);
+
+  // Auto-advance carousel every 3 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setWorkIndex((prev) => prev + 1);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  // Clean up any pending reset timeouts
+  useEffect(() => {
+    return () => {
+      if (resetTimeout.current) clearTimeout(resetTimeout.current);
+    };
+  }, []);
+
+  const handleTransitionEnd = () => {
+    setWorkIndex((prev) => {
+      if (prev >= work.length) return prev - work.length;
+      if (prev < 0) return prev + work.length;
+      return prev;
+    });
+  };
 
   return (
     <div className="flex flex-col gap-16">
@@ -603,7 +628,7 @@ export default function Home() {
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center rounded-full border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-800 transition hover:-translate-y-0.5 hover:border-slate-300"
+                className="inline-flex items-center justify-center rounded-full border-2 border-slate-600 px-5 py-3 text-sm font-semibold text-slate-800 transition hover:-translate-y-0.5 hover:border-slate-300"
               >
                 Talk with us
               </Link>
@@ -883,9 +908,7 @@ export default function Home() {
           <div className="flex items-center gap-2">
             <button
               aria-label="Previous projects"
-              onClick={() =>
-                setWorkIndex((prev) => (prev - 1 + work.length) % work.length)
-              }
+              onClick={() => setWorkIndex((prev) => prev - 1)}
               className="h-10 w-10 rounded-full border border-slate-200 text-slate-700 hover:bg-slate-50 transition flex items-center justify-center"
             >
               <svg
@@ -905,7 +928,7 @@ export default function Home() {
             </button>
             <button
               aria-label="Next projects"
-              onClick={() => setWorkIndex((prev) => (prev + 1) % work.length)}
+              onClick={() => setWorkIndex((prev) => prev + 1)}
               className="h-10 w-10 rounded-full border border-slate-200 text-slate-700 hover:bg-slate-50 transition flex items-center justify-center"
             >
               <svg
@@ -925,74 +948,78 @@ export default function Home() {
             </button>
           </div>
         </div>
-        <div className="mt-6 grid gap-4 md:grid-cols-3">
-          {visibleWork.map((item, index) => (
-            <div
-              key={`${item.name}-${index}`}
-              className="rounded-2xl border border-slate-200 bg-white p-5 animate-fade-up"
-              style={{ animationDelay: `${index * 90 + 140}ms` }}
-            >
-              <div className="relative h-44 w-full overflow-hidden rounded-xl border border-slate-100 mb-4">
-                <Image
-                  src={item.image}
-                  alt={`${item.name} cover`}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 320px"
-                />
-              </div>
-              <div className="flex items-center justify-between gap-3">
-                <div className="text-sm font-semibold text-slate-900">
-                  {item.name}
-                </div>
-                {item.link ? (
-                  <a
-                    href={item.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-xs font-semibold text-slate-700 underline decoration-2 underline-offset-4 hover:text-slate-900"
-                  >
-                    View
-                  </a>
-                ) : (
-                  <span className="text-[11px] font-semibold text-amber-600 uppercase tracking-wide">
-                    Development stage
-                  </span>
-                )}
-              </div>
-              <p className="mt-3 text-sm text-slate-600 leading-relaxed">
-                {item.detail}
-              </p>
-              <div className="mt-3">
-                <div className="text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-500 mb-2">
-                  Technology used
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {item.tech.map((tag) => {
-                    const colors = techColors[tag] ?? {
-                      bg: "#F1F5F9",
-                      fg: "#334155",
-                    };
-                    return (
-                      <span
-                        key={tag}
-                        className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold"
-                        style={{
-                          backgroundColor: colors.bg,
-                          color: colors.fg,
-                        }}
+        <div className="mt-6 overflow-hidden">
+          <div
+            className="flex transition-transform duration-700 ease-in-out"
+            style={{ transform: `translateX(-${(workIndex * 100) / 3}%)` }}
+            onTransitionEnd={handleTransitionEnd}
+          >
+            {[...work, ...work.slice(0, 3)].map((item, index) => (
+              <div key={`${item.name}-${index}`} className="shrink-0 w-full md:w-1/3 px-2">
+                <div className="rounded-2xl border border-slate-200 bg-white p-5 h-full">
+                  <div className="relative h-44 w-full overflow-hidden rounded-xl border border-slate-100 mb-4">
+                    <Image
+                      src={item.image}
+                      alt={`${item.name} cover`}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 320px"
+                    />
+                  </div>
+                  <div className="flex items-center justify-between gap-3">
+                    <div className="text-sm font-semibold text-slate-900">
+                      {item.name}
+                    </div>
+                    {item.link ? (
+                      <a
+                        href={item.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xs font-semibold text-slate-700 underline decoration-2 underline-offset-4 hover:text-slate-900"
                       >
-                        {techIcons[tag] ?? (
-                          <span className="inline-block h-3 w-3 rounded-full bg-slate-400" />
-                        )}
-                        {tag}
+                        View
+                      </a>
+                    ) : (
+                      <span className="text-[11px] font-semibold text-amber-600 uppercase tracking-wide">
+                        Development stage
                       </span>
-                    );
-                  })}
+                    )}
+                  </div>
+                  <p className="mt-3 text-sm text-slate-600 leading-relaxed">
+                    {item.detail}
+                  </p>
+                  <div className="mt-3">
+                    <div className="text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-500 mb-2">
+                      Technology used
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {item.tech.map((tag) => {
+                        const colors = techColors[tag] ?? {
+                          bg: "#F1F5F9",
+                          fg: "#334155",
+                        };
+                        return (
+                          <span
+                            key={tag}
+                            className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold"
+                            style={{
+                              backgroundColor: colors.bg,
+                              color: colors.fg,
+                            }}
+                          >
+                            {techIcons[tag] ?? (
+                              <span className="inline-block h-3 w-3 rounded-full bg-slate-400" />
+                            )}
+                            {tag}
+                          </span>
+                        );
+                      })}
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
     </div>
