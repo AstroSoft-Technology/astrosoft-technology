@@ -58,11 +58,11 @@ const leaders: Leader[] = [
     accent: "#FEEFD3",
   },
   {
-    name: "Dinali Perera",
-    role: "Co-Founder & CTO",
-    image: "/images/Dinali.JPG",
-    bio: "Leads engineering strategy, security, and scalability for mission-critical platforms.",
-    accent: "#E8F6EF",
+    name: "Disini Ruhansa",
+    role: "Head of Digital Marketing",
+    image: "/images/Disini.jpeg",
+    bio: "Drives brand growth and customer engagement through data-driven campaigns and strategic digital initiatives.",
+    accent: "#FEEFD3",
   },
 ];
 
