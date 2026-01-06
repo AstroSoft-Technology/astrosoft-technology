@@ -106,3 +106,115 @@ body {
     transform: translateY(0);
   }
 }
+
+.logo-marquee-viewport {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  border-radius: 0;
+  border: none;
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
+  isolation: isolate;
+  color: #9aa1ab; /* neutral glyph color */
+}
+
+.logo-marquee-viewport::before,
+.logo-marquee-viewport::after {
+  content: none;
+}
+
+.logo-marquee-viewport::before {
+  left: 0;
+  background: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    #ffffffd9 48%,
+    transparent 100%
+  );
+}
+
+.logo-marquee-viewport::after {
+  right: 0;
+  background: linear-gradient(
+    270deg,
+    #ffffff 0%,
+    #ffffffd9 48%,
+    transparent 100%
+  );
+}
+
+.logo-marquee-track {
+  display: inline-flex;
+  gap: 36px;
+  min-width: max-content;
+  animation: marquee-slide 60s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.logo-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.logo-marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  padding: 10px 6px;
+  border-radius: 12px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  color: inherit;
+}
+
+.logo-marquee-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 64px;
+  width: 64px;
+  border-radius: 16px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  color: inherit;
+}
+
+.logo-marquee-icon i {
+  font-size: 48px;
+  line-height: 1;
+  color: currentColor;
+}
+
+.logo-fallback-dot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  width: 44px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  background: currentColor;
+}
+
+@keyframes marquee-slide {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-33.3333%, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-marquee-track {
+    animation-duration: 0.001ms;
+    animation-iteration-count: 1;
+  }
+}

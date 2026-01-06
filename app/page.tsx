@@ -252,12 +252,10 @@ const techIcons: Record<string, ReactElement> = {
     </svg>
   ),
   Flutter: (
-    <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0" fill="none">
+    <svg viewBox="0 0 24 24" className="h-7 w-7 shrink-0" fill="none">
       <path
-        d="m6 14 8-8h4l-12 12 4 0 8-8"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
+        d="M5 13 14 4h5L7 16l3.9 4H15l-5.8-5.9 8.9-8.9"
+        fill="currentColor"
       />
     </svg>
   ),
@@ -430,7 +428,234 @@ const techIcons: Record<string, ReactElement> = {
       />
     </svg>
   ),
+  Swift: (
+    <svg viewBox="0 0 24 24" className="h-7 w-7 shrink-0" fill="none">
+      <rect
+        x="2.5"
+        y="2.5"
+        width="19"
+        height="19"
+        rx="4"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      />
+      <path
+        d="M9.2 7.3c1.6 1.9 3.6 3.6 5.1 4.4l-3.8-4.7c1.3 1.5 3.6 3.6 5.4 4.5 1.1 2.2.5 4-1.7 5-2.1.9-4.5.6-6.6-.6.9.1 2.1-.2 2.7-.6-1.7-.6-3.5-1.8-4.8-3.1C4.5 9.6 6 6.8 6 6.8s1.5 2.4 3.2 4z"
+        fill="currentColor"
+      />
+    </svg>
+  ),
+  TypeScript: (
+    <svg viewBox="0 0 24 24" className="h-7 w-7 shrink-0" fill="none">
+      <rect
+        x="3"
+        y="4"
+        width="18"
+        height="16"
+        rx="2.4"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      />
+      <path
+        d="M9 10h3m-1.5 0v6M14.2 12.4c0-1.2 1-2.4 2.8-2.4 1.5 0 2.8.9 2.8 2.3 0 1-.6 1.7-1.6 2-.9.3-1.4.6-1.4 1.2V16"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  ),
+  Java: (
+    <svg viewBox="0 0 24 24" className="h-7 w-7 shrink-0" fill="none">
+      <path
+        d="M9.5 16c1 1.1 2.4 1.6 4 1.6 2 0 3.6-.9 3.6-2.3 0-1.3-1.4-1.8-3-2.1-1.6-.3-2.4-.8-2.4-1.6 0-.9 1-1.6 2.5-1.6 1.2 0 2.2.5 2.4 1.2"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+      />
+      <path
+        d="M7.8 17.3c1 1.2 3.4 1.7 5.8 1.7 2.5 0 4.7-.6 5.8-1.7M12.4 5.5c0 1.3 2 2 2 3.3 0 .7-.5 1.4-1.6 2.1"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+      />
+    </svg>
+  ),
+  Go: (
+    <svg viewBox="0 0 24 24" className="h-7 w-7 shrink-0" fill="none">
+      <path
+        d="M3 12h5.5M3 9h7M3 15h4"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+      <path
+        d="M10.5 13.2c0-1.8 1.6-3.2 4.2-3.2 2.5 0 4.2 1.2 4.2 3.1 0 1.8-1.6 3.1-3.9 3.1-1.1 0-2-.3-2.7-.8l-.3 1.2h-1.5l.7-2.6c-.5-.6-.7-1.2-.7-1.8Zm5.5-.6c0-.9-.7-1.5-1.6-1.5s-1.6.6-1.6 1.5c0 .9.7 1.5 1.6 1.5s1.6-.6 1.6-1.5Z"
+        fill="currentColor"
+      />
+    </svg>
+  ),
+  "C#": (
+    <svg viewBox="0 0 24 24" className="h-7 w-7 shrink-0" fill="none">
+      <path
+        d="M12 3.4 4 7.6v8.8l8 4.2 8-4.2V7.6L12 3.4Z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      />
+      <path
+        d="M11 14.5c-.6.6-1.6.5-2.1-.1-.4-.5-.4-1.3 0-1.8.5-.6 1.5-.7 2.1-.1"
+        stroke="currentColor"
+        strokeWidth="1.3"
+        strokeLinecap="round"
+      />
+      <path
+        d="M14.2 9.5v5M16.4 9.5v5M13.4 11.8h4M13.4 13.7h4"
+        stroke="currentColor"
+        strokeWidth="1.3"
+        strokeLinecap="round"
+      />
+    </svg>
+  ),
+  "C++": (
+    <svg viewBox="0 0 24 24" className="h-7 w-7 shrink-0" fill="none">
+      <path
+        d="M12 3.3 4 7.6v8.8l8 4.3 8-4.3V7.6L12 3.3Z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      />
+      <path
+        d="M11.2 12.5c-.5.5-1.3.5-1.8 0-.5-.5-.5-1.3 0-1.8.5-.5 1.3-.5 1.8 0"
+        stroke="currentColor"
+        strokeWidth="1.3"
+        strokeLinecap="round"
+      />
+      <path
+        d="M14.2 10.2v4.6M12.6 12.5h3.2M17.2 10.2v4.6M15.6 12.5h3.2"
+        stroke="currentColor"
+        strokeWidth="1.3"
+        strokeLinecap="round"
+      />
+    </svg>
+  ),
+  Rust: (
+    <svg viewBox="0 0 24 24" className="h-7 w-7 shrink-0" fill="none">
+      <circle cx="12" cy="12" r="8.5" stroke="currentColor" strokeWidth="1.5" />
+      <path
+        d="M9.2 15.8V8.2h4c1.2 0 2.1.9 2.1 2.1 0 1.2-.9 2.1-2.1 2.1H9.8m2.1-.1 1.9 3.5"
+        stroke="currentColor"
+        strokeWidth="1.3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  ),
+  Lightning: (
+    <svg viewBox="0 0 24 24" className="h-8 w-8 shrink-0" fill="none">
+      <path d="M13.5 3 6 13h4l-1.5 8 7.5-10h-4L13.5 3Z" fill="currentColor" />
+    </svg>
+  ),
+  Docker: (
+    <svg viewBox="0 0 64 64" className="h-8 w-8 shrink-0" fill="none">
+      <path
+        d="M8 34c-1.5 8 5 15 13 15h22c10 0 15-7 14-16-7.5-2-11-9-11-9-1.8 1.3-4.1 1.8-6.4 1.5H8Z"
+        fill="currentColor"
+        opacity="0.35"
+      />
+      <rect x="14" y="28" width="6" height="6" fill="currentColor" />
+      <rect x="22" y="28" width="6" height="6" fill="currentColor" />
+      <rect x="30" y="28" width="6" height="6" fill="currentColor" />
+      <rect x="22" y="20" width="6" height="6" fill="currentColor" />
+      <rect x="30" y="20" width="6" height="6" fill="currentColor" />
+      <rect x="38" y="28" width="6" height="6" fill="currentColor" />
+      <rect x="38" y="20" width="6" height="6" fill="currentColor" />
+      <path
+        d="M46 34c2.3-.1 3.6-1 4.3-2.3 1.1 1 2.8 1.8 5.2 1.8-1 6-6 9.5-13 9.5H21C12 43 9 36 10 34h36Z"
+        fill="currentColor"
+      />
+    </svg>
+  ),
+  Kubernetes: (
+    <svg viewBox="0 0 24 24" className="h-8 w-8 shrink-0" fill="none">
+      <path
+        d="M11.9 2.5 4.3 6.4 3 12l1.3 5.6 7.6 3.9 7.6-3.9L21 12l-1.4-5.6-7.7-3.9Z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        fill="none"
+      />
+      <path
+        d="M12 6v12m0-12c2 0 3.5 1.7 3.5 4s-1.5 4-3.5 4-3.5-1.7-3.5-4S10 6 12 6Zm-5 7.5 10-.1M7 9l10 6"
+        stroke="currentColor"
+        strokeWidth="1.3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  ),
+  Git: (
+    <svg viewBox="0 0 24 24" className="h-8 w-8 shrink-0" fill="none">
+      <path
+        d="m4.5 11.5 7-7 8 8-7 7-8-8Z"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        fill="none"
+      />
+      <circle cx="10" cy="10" r="1.3" fill="currentColor" />
+      <circle cx="14" cy="14" r="1.3" fill="currentColor" />
+      <circle cx="14" cy="10" r="1.3" fill="currentColor" />
+      <path
+        d="M10 10.5v3M10 10.5h4"
+        stroke="currentColor"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+      />
+    </svg>
+  ),
+  Nginx: (
+    <svg viewBox="0 0 24 24" className="h-8 w-8 shrink-0" fill="none">
+      <path
+        d="M12 3 3 8.5v7L12 19l9-3.5v-7L12 3Z"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        fill="none"
+      />
+      <path
+        d="M9 15V9l6 6V9"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+    </svg>
+  ),
+  Feather: (
+    <svg viewBox="0 0 24 24" className="h-8 w-8 shrink-0" fill="none">
+      <path
+        d="M19 5 9 15"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+      <path
+        d="M19 5c0 6-4 10-10 10"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+      <path
+        d="M14 5H5v9"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+      <path
+        d="M5 12h5"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+    </svg>
+  ),
 };
+
 const techColors: Record<string, { bg: string; fg: string }> = {
   React: { bg: "#E0F2FE", fg: "#0EA5E9" },
   "React Native": { bg: "#E0F2FE", fg: "#0284C7" },
@@ -548,11 +773,155 @@ const services = [
   },
 ];
 
+const marqueeLogos = [
+  "React.js",
+  "vue.js",
+  "Next.js",
+  "TypeScript",
+  "Tailwind CSS",
+  "Node.js",
+  "Python",
+  "Django",
+  "FastAPI",
+  "Go",
+  "Flutter",
+  "angular",
+  "laravel",
+  "java",
+  "javascript",
+  "android",
+  "firebase",
+  "vercel",
+  "vite.js",
+  "photoshop",
+  "lighrooom",
+  "figma",
+  "adobe xd",
+  "html",
+  "React Native",
+  "Swift",
+  "Kotlin",
+  "PostgreSQL",
+  "MySQL",
+  "MongoDB",
+  "Redis",
+  "AWS",
+  "Microsoft Azure",
+  "Google Cloud",
+  "Docker",
+  "Kubernetes",
+  "GitHub",
+  "Jenkins",
+  "GitLab",
+  "Postman",
+  "GitHub Copilot",
+  "ChatGPT",
+  "gemini ai",
+];
+
+const deviconClasses: Record<string, string> = {
+  "React.js": "react-original",
+  "vue.js": "vuejs-plain",
+  "Next.js": "nextjs-original",
+  TypeScript: "typescript-plain",
+  "Tailwind CSS": "tailwindcss-plain",
+  "Node.js": "nodejs-plain",
+  Python: "python-plain",
+  Django: "django-plain",
+  FastAPI: "fastapi-plain",
+  Go: "go-plain",
+  Flutter: "flutter-plain",
+  angular: "angularjs-plain",
+  laravel: "laravel-plain",
+  java: "java-plain",
+  javascript: "javascript-plain",
+  android: "android-plain",
+  firebase: "firebase-plain",
+  vercel: "vercel-original",
+  "vite.js": "vitejs-plain",
+  photoshop: "photoshop-plain",
+  lighrooom: "lightroom-plain",
+  figma: "figma-plain",
+  "adobe xd": "xd-plain",
+  html: "html5-plain",
+  "React Native": "react-original",
+  Swift: "swift-plain",
+  Kotlin: "kotlin-plain",
+  PostgreSQL: "postgresql-plain",
+  MySQL: "mysql-plain",
+  MongoDB: "mongodb-plain",
+  Redis: "redis-plain",
+  AWS: "amazonwebservices-original",
+  "Microsoft Azure": "azure-plain",
+  "Google Cloud": "googlecloud-plain",
+  Docker: "docker-plain",
+  Kubernetes: "kubernetes-plain",
+  GitHub: "github-original",
+  Jenkins: "jenkins-line",
+  GitLab: "gitlab-plain",
+  Postman: "postman-plain",
+};
+
+// Minimal monochrome icons for tools not available in Devicon
+const customMarqueeIcons: Record<string, ReactElement> = {
+  "GitHub Copilot": (
+    <svg viewBox="0 0 24 24" className="h-12 w-12" fill="none">
+      <rect
+        x="3"
+        y="8"
+        width="18"
+        height="9"
+        rx="4"
+        stroke="currentColor"
+        strokeWidth="1.6"
+      />
+      <circle cx="8.5" cy="12.5" r="1.6" fill="currentColor" />
+      <circle cx="15.5" cy="12.5" r="1.6" fill="currentColor" />
+      <path
+        d="M7 8V6a5 5 0 0 1 10 0v2"
+        stroke="currentColor"
+        strokeWidth="1.6"
+      />
+    </svg>
+  ),
+  ChatGPT: (
+    <svg viewBox="0 0 24 24" className="h-12 w-12" fill="none">
+      <path
+        d="M12 4.5c2.2 0 4 1.8 4 4 0 .3 0 .6-.1.8 1.1.6 1.9 1.8 1.9 3.1 0 2-1.6 3.6-3.6 3.6h-6.1A3.5 3.5 0 0 1 4.5 12c0-1.2.6-2.2 1.6-2.9A4 4 0 0 1 12 4.5Z"
+        stroke="currentColor"
+        strokeWidth="1.6"
+      />
+      <path
+        d="M8 9.5 12 7m-1 4.5 4-2.5M8.2 13.8l3.8 2.2m3-2.2-3.8 2.2"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+      />
+    </svg>
+  ),
+  "gemini ai": (
+    <svg viewBox="0 0 24 24" className="h-12 w-12" fill="none">
+      <circle cx="9" cy="12" r="4.5" stroke="currentColor" strokeWidth="1.6" />
+      <circle cx="15" cy="12" r="4.5" stroke="currentColor" strokeWidth="1.6" />
+    </svg>
+  ),
+};
+
+const fallbackAbbr = (label: string) =>
+  label
+    .replace(/[^A-Za-z0-9\s.-]/g, "")
+    .split(/[\s.-]+/)
+    .filter(Boolean)
+    .map((part) => part[0])
+    .join("")
+    .slice(0, 3)
+    .toUpperCase();
+
 export default function Home() {
   const [workIndex, setWorkIndex] = useState(0);
   const resetTimeout = useRef<NodeJS.Timeout | null>(null);
 
-  const visibleWork = useMemo(() => {
+  const _visibleWork = useMemo(() => {
     if (work.length <= 3) return work;
     return [0, 1, 2].map((offset) => work[(workIndex + offset) % work.length]);
   }, [workIndex]);
@@ -596,10 +965,7 @@ export default function Home() {
       </div>
 
       <section className="card overflow-hidden px-8 py-10 sm:px-10 animate-fade-up relative">
-        <BubbleBackground
-          interactive={true}
-          className="absolute inset-0 -z-0"
-        />
+        <BubbleBackground interactive={true} className="absolute inset-0 z-0" />
         <div className="relative z-10 flex flex-wrap items-center gap-3 text-sm text-slate-700">
           <span className="pill">Enterprise-grade builds</span>
           <span>
@@ -650,7 +1016,7 @@ export default function Home() {
           </div>
 
           <div className="relative">
-            <div className="card relative overflow-hidden p-4 md:p-6 bg-gradient-to-br from-slate-50 to-slate-100">
+            <div className="card relative overflow-hidden p-4 md:p-6 bg-linear-to-br from-slate-50 to-slate-100">
               <div className="relative space-y-4 text-slate-900">
                 <div className="text-center mb-6 animate-fade-up">
                   <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 mb-1">
@@ -666,7 +1032,7 @@ export default function Home() {
                   className="relative flex items-center justify-end animate-fade-up group"
                   style={{ animationDelay: "100ms" }}
                 >
-                  <div className="relative bg-gradient-to-r from-sky-500 to-sky-600 text-white rounded-xl p-4 max-w-xs shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer">
+                  <div className="relative bg-linear-to-r from-sky-500 to-sky-600 text-white rounded-xl p-4 max-w-xs shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer">
                     <div className="absolute -left-3 top-1/2 -translate-y-1/2 flex h-12 w-12 items-center justify-center rounded-full bg-sky-700 text-white font-bold text-lg shadow-lg transition-all duration-300 group-hover:scale-125 group-hover:rotate-12 group-hover:shadow-xl">
                       01
                     </div>
@@ -720,7 +1086,7 @@ export default function Home() {
                   className="relative flex items-center justify-start animate-fade-up group"
                   style={{ animationDelay: "200ms" }}
                 >
-                  <div className="relative bg-gradient-to-r from-teal-500 to-teal-600 text-white rounded-xl p-4 max-w-xs shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer">
+                  <div className="relative bg-linear-to-r from-teal-500 to-teal-600 text-white rounded-xl p-4 max-w-xs shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer">
                     <div className="absolute -right-3 top-1/2 -translate-y-1/2 flex h-12 w-12 items-center justify-center rounded-full bg-teal-700 text-white font-bold text-lg shadow-lg transition-all duration-300 group-hover:scale-125 group-hover:rotate-12 group-hover:shadow-xl">
                       02
                     </div>
@@ -774,7 +1140,7 @@ export default function Home() {
                   className="relative flex items-center justify-end animate-fade-up group"
                   style={{ animationDelay: "300ms" }}
                 >
-                  <div className="relative bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-xl p-4 max-w-xs shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer">
+                  <div className="relative bg-linear-to-r from-emerald-500 to-emerald-600 text-white rounded-xl p-4 max-w-xs shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer">
                     <div className="absolute -left-3 top-1/2 -translate-y-1/2 flex h-12 w-12 items-center justify-center rounded-full bg-emerald-700 text-white font-bold text-lg shadow-lg transition-all duration-300 group-hover:scale-125 group-hover:rotate-12 group-hover:shadow-xl">
                       03
                     </div>
@@ -819,6 +1185,36 @@ export default function Home() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="animate-fade-up" style={{ animationDelay: "60ms" }}>
+        <div className="logo-marquee-viewport">
+          <div className="logo-marquee-track">
+            {[...marqueeLogos, ...marqueeLogos, ...marqueeLogos].map(
+              (name, index) => {
+                return (
+                  <div key={`${name}-${index}`} className="logo-marquee-item">
+                    <span className="logo-marquee-icon">
+                      {customMarqueeIcons[name] ? (
+                        customMarqueeIcons[name]
+                      ) : deviconClasses[name] ? (
+                        <i
+                          className={`devicon-${deviconClasses[name]}`}
+                          aria-hidden
+                        />
+                      ) : (
+                        <span className="logo-fallback-dot" aria-hidden>
+                          {fallbackAbbr(name)}
+                        </span>
+                      )}
+                      <span className="sr-only">{name}</span>
+                    </span>
+                  </div>
+                );
+              }
+            )}
           </div>
         </div>
       </section>
@@ -955,7 +1351,10 @@ export default function Home() {
             onTransitionEnd={handleTransitionEnd}
           >
             {[...work, ...work.slice(0, 3)].map((item, index) => (
-              <div key={`${item.name}-${index}`} className="shrink-0 w-full md:w-1/3 px-2">
+              <div
+                key={`${item.name}-${index}`}
+                className="shrink-0 w-full md:w-1/3 px-2"
+              >
                 <div className="rounded-2xl border border-slate-200 bg-white p-5 h-full">
                   <div className="relative h-44 w-full overflow-hidden rounded-xl border border-slate-100 mb-4">
                     <Image
